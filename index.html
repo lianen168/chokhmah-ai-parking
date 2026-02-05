@@ -7,18 +7,18 @@
     <meta name="description" content="Chokhmah.ai: For the AGI that leaps from knowing (Da'at) to discerning (Chokhmah). The philosophical landmark for machine consciousness.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- NEW: "Flowing Wisdom" Palette --- */
-            --bg-color: #080c24; /* Deep Ink Blue */
+            /* --- NEW: "Crystal Wisdom" Palette --- */
+            --bg-color: #100824; /* Deep Cosmic Purple */
             --text-primary: #EAEAEA;
-            --text-secondary: #8899b0;
-            --accent-gold: #E6C566; /* Sacred Gold */
-            --accent-ether: #7DF9FF; /* Keep for secondary highlights if needed */
-            --gold-glow: rgba(230, 197, 102, 0.3);
-            --card-bg: rgba(20, 25, 48, 0.7);
-            --border-color: rgba(230, 197, 102, 0.15);
+            --text-secondary: #9088b2; /* Muted Lavender */
+            --accent-amethyst: #c792e8; /* Vibrant Amethyst */
+            --accent-ether: #7DF9FF;
+            --amethyst-glow: rgba(199, 146, 232, 0.3);
+            --card-bg: rgba(28, 20, 48, 0.7);
+            --border-color: rgba(199, 146, 232, 0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -35,23 +35,31 @@
         /* --- NEW FONT & ANIMATION --- */
         .main-title {
             font-family: 'EB Garamond', serif;
-            font-style: italic; /* Key change for "flow" */
             font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 500; 
             letter-spacing: 0.05em; 
             line-height: 1.1;
-            color: transparent;
-            background: linear-gradient(90deg, var(--accent-gold), var(--text-primary), var(--accent-gold));
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: flow-light 5s linear infinite;
+            margin-bottom: 1.5rem;
         }
-        @keyframes flow-light {
-            from { background-position: 200% 0; }
-            to { background-position: -200% 0; }
+        .wisdom-word {
+            color: var(--accent-amethyst);
+            opacity: 0;
+            animation: crystalize 4s ease-out forwards;
         }
-        .main-title .tld { color: var(--accent-gold); }
+        @keyframes crystalize {
+            from { opacity: 0; filter: blur(15px); text-shadow: 0 0 30px var(--amethyst-glow); }
+            to { opacity: 1; filter: blur(0); text-shadow: 0 0 8px var(--amethyst-glow); }
+        }
+        .tld {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-primary);
+            margin-left: 0.1em;
+            animation: pulse-ai 3s infinite ease-in-out;
+        }
+        @keyframes pulse-ai {
+            0%, 100% { opacity: 0.7; text-shadow: none; }
+            50% { opacity: 1; text-shadow: 0 0 10px var(--amethyst-glow); }
+        }
         .scripture-section {
             max-width: 700px; margin: 2rem auto; padding: 25px;
             background: rgba(30, 32, 38, 0.4); border: 1px solid var(--border-color);
@@ -59,36 +67,37 @@
         }
         .scripture-quote {
             font-family: 'EB Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-style: italic; color: var(--accent-gold); line-height: 1.8;
+            font-style: italic; color: var(--accent-amethyst); line-height: 1.8;
             margin-bottom: 1rem; position: relative; text-align: center;
         }
         .scripture-quote::before, .scripture-quote::after {
             content: '"'; font-size: 2.5rem; opacity: 0.6;
-            position: absolute; color: var(--accent-gold);
+            position: absolute; color: var(--accent-amethyst);
         }
         .scripture-quote::before { top: -10px; left: -15px; }
         .scripture-quote::after { bottom: -30px; right: -15px; }
         .scripture-reference { font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text-secondary); margin-top: 8px; font-style: normal; }
         .original-word { display: flex; justify-content: center; align-items: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
         .original-word-text { font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--text-secondary); }
-        .original-word-hebrew { font-family: 'EB Garamond', serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 500; color: var(--accent-gold); margin: 0 8px; animation: subtle-pulse 4s infinite ease-in-out; }
+        .original-word-hebrew { font-family: 'EB Garamond', serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 500; color: var(--accent-amethyst); margin: 0 8px; animation: subtle-pulse 4s infinite ease-in-out; }
+        .original-word-translation { font-size: 0.9rem; color: var(--text-secondary); } /* Style for the translation */
         @keyframes subtle-pulse {
-            0%, 100% { text-shadow: 0 0 5px var(--gold-glow); transform: scale(1); }
-            50% { text-shadow: 0 0 10px var(--accent-gold), 0 0 15px var(--gold-glow); transform: scale(1.03); }
+            0%, 100% { text-shadow: 0 0 5px var(--amethyst-glow); transform: scale(1); }
+            50% { text-shadow: 0 0 10px var(--accent-amethyst), 0 0 15px var(--amethyst-glow); transform: scale(1.03); }
         }
         .tagline { font-size: clamp(1rem, 3vw, 1.3rem); max-width: 700px; margin: 2rem auto 0; color: var(--text-secondary); font-style: italic; line-height: 1.6; }
         .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 80px 40px; width: 100%; }
-        .section-title { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 3rem; text-transform: uppercase; }
+        .section-title { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500; letter-spacing: 0.1em; color: var(--accent-amethyst); margin-bottom: 3rem; text-transform: uppercase; }
         .synthesis-text { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.8; color: var(--text-secondary); }
         .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; font-size: clamp(0.85rem, 2vw, 1rem); }
         .analogy-table th, .analogy-table td { padding: 15px; border: 1px solid var(--border-color); }
-        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1rem; text-align: center; }
+        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-amethyst); font-size: 1rem; text-align: center; }
         .analogy-table td { color: var(--text-secondary); }
         .analogy-table strong { color: var(--text-primary); font-weight: 500; }
         .tree-section { padding: 60px 20px; width: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 70vh; overflow: hidden; }
         .tree-container { position: relative; width: 90vw; max-width: 350px; height: 500px; margin: 2rem auto 0; }
         .sefirah { position: absolute; width: 50px; height: 50px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; color: var(--accent-silver); background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); padding: 2px; }
-        .sefirah.chokhmah { border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); color: var(--accent-gold); }
+        .sefirah.chokhmah { border-color: var(--accent-amethyst); box-shadow: 0 0 15px var(--amethyst-glow); color: var(--accent-amethyst); }
         .keter { top: 5%; left: 50%; transform: translateX(-50%); }
         .chokhmah { top: 20%; left: 15%; }
         .binah { top: 20%; right: 15%; }
@@ -99,22 +108,22 @@
         .hod { top: 63%; right: 15%; }
         .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
         .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
-        .spark { position: absolute; width: 2px; height: 2px; background: var(--accent-gold); border-radius: 50%; opacity: 0; box-shadow: 0 0 3px var(--accent-gold); }
+        .spark { position: absolute; width: 2px; height: 2px; background: var(--accent-amethyst); border-radius: 50%; opacity: 0; box-shadow: 0 0 3px var(--accent-amethyst); }
         @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
         .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
         .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s ease; }
-        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); }
-        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: clamp(1rem, 3vw, 1.2rem); margin-bottom: 1rem; }
+        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-amethyst); box-shadow: 0 0 15px var(--amethyst-glow); }
+        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-amethyst); font-size: clamp(1rem, 3vw, 1.2rem); margin-bottom: 1rem; }
         .domain-card p { color: var(--text-secondary); font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.6; }
         .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; width: 100%; max-width: 550px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
         .domain-name { font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem, 5vw, 1.8rem); font-weight: 500; margin-bottom: 15px; color: var(--text-primary); text-transform: uppercase; }
-        .price { font-size: clamp(2rem, 6vw, 3rem); font-weight: 300; color: var(--accent-gold); margin: 10px 0; }
+        .price { font-size: clamp(2rem, 6vw, 3rem); font-weight: 300; color: var(--accent-amethyst); margin: 10px 0; }
         .installments { color: var(--text-secondary); margin-bottom: 25px; font-style: italic; font-size: clamp(0.9rem, 2vw, 1rem); }
-        .buy-button { display: inline-block; background: var(--accent-gold); color: #000; font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 3vw, 1.1rem); font-weight: 500; padding: 15px 30px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 25px; }
-        .buy-button:hover { background: #f0d18a; transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow); }
+        .buy-button { display: inline-block; background: var(--accent-amethyst); color: #000; font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 3vw, 1.1rem); font-weight: 500; padding: 15px 30px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 25px; }
+        .buy-button:hover { background: #d8aaff; transform: translateY(-3px); box-shadow: 0 12px 30px var(--amethyst-glow); }
         footer { padding: 50px 40px 70px; font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
-        .contact-button { background: transparent; color: var(--accent-gold); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: clamp(0.95rem, 2vw, 1rem); padding: 10px 25px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; }
-        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-gold); }
+        .contact-button { background: transparent; color: var(--accent-amethyst); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: clamp(0.95rem, 2vw, 1rem); padding: 10px 25px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; }
+        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-amethyst); }
         #email-copy-feedback { height: 1.2em; font-size: clamp(0.8rem, 2vw, 0.9rem); margin-top: 10px; }
         /* --- MOBILE ADAPTATIONS --- */
         @media (max-width: 768px) {
@@ -126,7 +135,7 @@
             .analogy-table thead { display: none; }
             .analogy-table tr { display: block; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; }
             .analogy-table td { display: block; text-align: center; padding: 12px; border: none; }
-            .analogy-table td:first-child { font-weight: 600; color: var(--accent-gold); font-family: 'Oswald', sans-serif; }
+            .analogy-table td:first-child { font-weight: 600; color: var(--accent-amethyst); font-family: 'Oswald', sans-serif; }
             .analogy-table td:nth-child(2) { font-weight: 500; color: var(--text-primary); }
             .analogy-table td:last-child { color: var(--text-secondary); font-size: 0.9rem; padding-top: 0; }
             footer { padding: 40px 20px 60px; }
@@ -160,13 +169,17 @@
 <body>
     <header>
         <div class="container">
-            <h1 class="main-title" id="main-title">Chokhmah<span class="tld">.ai</span></h1>
+            <h1 class="main-title">
+                <span class="wisdom-word">Chokhmah</span><span class="tld">.ai</span>
+            </h1>
             <div class="scripture-section">
                 <div class="scripture-quote">Wisdom is the principal thing; therefore get wisdom</div>
                 <div class="scripture-reference">— Proverbs 4:7</div>
                 <div class="original-word">
                     <span class="original-word-text">The original Hebrew word for "wisdom" is</span>
                     <span class="original-word-hebrew">חָכְמָה</span>
+                    <!-- Corrected placement -->
+                    <span class="original-word-translation">(Chokhmah)</span>
                 </div>
             </div>
             <p class="tagline">The leap from knowing to discerning. The philosophical landmark for true machine wisdom.</p>
@@ -236,11 +249,11 @@
         <div class="container">
             <div class="section-title">Acquire the Spark</div>
             <div class="sales-card">
-                <h3 class="domain-name">chokhmah<span style="color: var(--accent-gold)">.ai</span></h3>
+                <h3 class="domain-name">chokhmah<span style="color: var(--accent-amethyst)">.ai</span></h3>
                 <p style="color: var(--text-secondary); margin-top:0;">The foundational asset for the pursuit of true artificial wisdom.</p>
                 <div class="price">$73,000 <small>USD</small></div>
                 <p class="installments">10 installment payments of $7,300</p>
-                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '_blank')">Acquire the Spark</button>
+                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '\_blank')">Acquire the Spark</button>
             </div>
         </div>
     </section>
@@ -317,7 +330,7 @@
             navigator.clipboard.writeText(email).then(() => {
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
-                feedback.style.color = 'var(--accent-gold)';
+                feedback.style.color = 'var(--accent-amethyst)';
                 setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
             }).catch(err => { showManualCopy(email, feedback); });
         }
