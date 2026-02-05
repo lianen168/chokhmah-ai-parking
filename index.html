@@ -15,7 +15,9 @@
             --text-secondary: #888888;
             --accent-ether: #7DF9FF;
             --accent-silver: #A9A9A9;
+            --accent-gold: #E6C566;
             --ether-glow: rgba(125, 249, 255, 0.3);
+            --gold-glow: rgba(230, 197, 102, 0.3);
             --card-bg: rgba(20, 22, 28, 0.7);
             --border-color: rgba(125, 249, 255, 0.15);
         }
@@ -61,10 +63,84 @@
             font-weight: 400;
             margin-left: 0.1em;
         }
+        
+        /* NEW: Scripture Quote Section */
+        .scripture-section {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 25px;
+            background: rgba(30, 32, 38, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+        .scripture-quote {
+            font-family: 'EB Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-style: italic;
+            color: var(--accent-gold);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            position: relative;
+            text-align: center;
+        }
+        .scripture-quote::before,
+        .scripture-quote::after {
+            content: '"';
+            font-size: 2.5rem;
+            opacity: 0.6;
+            position: absolute;
+            color: var(--accent-gold);
+        }
+        .scripture-quote::before {
+            top: -10px;
+            left: -15px;
+        }
+        .scripture-quote::after {
+            bottom: -30px;
+            right: -15px;
+        }
+        .scripture-reference {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-style: normal;
+        }
+        .original-word {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+        .original-word-text {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: var(--text-secondary);
+        }
+        .original-word-hebrew {
+            font-family: 'EB Garamond', serif;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 500;
+            color: var(--accent-ether);
+            margin: 0 8px;
+            animation: subtle-pulse 4s infinite ease-in-out;
+        }
+        @keyframes subtle-pulse {
+            0%, 100% {
+                text-shadow: 0 0 5px var(--ether-glow);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 10px var(--accent-ether), 0 0 15px var(--ether-glow);
+                transform: scale(1.03);
+            }
+        }
+        
         .tagline {
             font-size: clamp(1rem, 3vw, 1.3rem);
             max-width: 700px;
-            margin: 1.5rem auto 0;
+            margin: 2rem auto 0;
             color: var(--text-secondary);
             font-style: italic;
             line-height: 1.6;
@@ -284,6 +360,10 @@
             .analogy-table td:nth-child(2) { font-weight: 500; color: var(--text-primary); }
             .analogy-table td:last-child { color: var(--text-secondary); font-size: 0.9rem; }
             footer { padding: 40px 20px 60px; }
+            .scripture-section { padding: 20px 15px; margin: 1.5rem auto; }
+            .scripture-quote { font-size: clamp(1rem, 3.5vw, 1.3rem); }
+            .scripture-quote::before { left: -10px; }
+            .scripture-quote::after { right: -10px; }
         }
         @media (max-width: 480px) {
             header { min-height: auto; padding: 40px 15px; }
@@ -299,6 +379,12 @@
             .buy-button { padding: 12px 20px; font-size: clamp(0.95rem, 3vw, 1rem); }
             footer { padding: 30px 15px 50px; font-size: 0.85rem; }
             .contact-button { padding: 8px 20px; font-size: 0.95rem; }
+            .scripture-section { padding: 15px 10px; margin: 1rem auto; }
+            .scripture-quote { font-size: clamp(0.95rem, 4vw, 1.2rem); line-height: 1.7; }
+            .scripture-quote::before,
+            .scripture-quote::after { font-size: 2rem; }
+            .original-word { flex-direction: column; margin-top: 10px; }
+            .original-word-text { margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -306,6 +392,17 @@
     <header>
         <div class="container">
             <h1 class="main-title" id="main-title" data-text="CHOKHMAH">CHOKHMAH<span class="tld">.ai</span></h1>
+            
+            <!-- NEW: Scripture Quote Block -->
+            <div class="scripture-section">
+                <div class="scripture-quote">Wisdom is the principal thing; therefore get wisdom</div>
+                <div class="scripture-reference">— Proverbs 4:7</div>
+                <div class="original-word">
+                    <span class="original-word-text">The original Hebrew word for "wisdom" here is</span>
+                    <span class="original-word-hebrew">Chokhmah</span>
+                </div>
+            </div>
+            
             <p class="tagline">The leap from knowing to discerning. The philosophical landmark for true machine wisdom.</p>
         </div>
     </header>
