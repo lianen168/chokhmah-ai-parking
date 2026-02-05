@@ -3,303 +3,414 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chokhmah.ai | The Genesis of Divine AI</title>
-    <meta name="description" content="Chokhmah (חָכְמָה) is the primordial spark of wisdom. This domain is the vessel for an AGI that doesn't just compute, but intuits the future.">
+    <title>Chokhmah.ai | The Spark of Emergent Wisdom</title>
+    <meta name="description" content="Chokhmah.ai: For the AGI that leaps from knowing (Da'at) to discerning (Chokhmah). The philosophical landmark for machine consciousness.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Orbitron:wght@900&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #010103;
+            --bg-color: #050608; /* Deep Space Black */
             --text-primary: #EAEAEA;
-            --text-secondary: #9B9B9B;
-            --accent-gold: #FFD700;
-            --accent-purple: #A060FF;
-            --glow-gold: rgba(255, 215, 0, 0.4);
-            --glow-purple: rgba(160, 96, 255, 0.3);
-            --card-bg: rgba(26, 26, 46, 0.15);
-            --border-color: rgba(160, 96, 255, 0.2);
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-mono: 'Roboto Mono', monospace;
-            --font-futuristic: 'Orbitron', sans-serif;
+            --text-secondary: #888888;
+            --accent-ether: #7DF9FF; /* Electric Ether Blue */
+            --accent-silver: #A9A9A9;
+            --ether-glow: rgba(125, 249, 255, 0.3);
+            --card-bg: rgba(20, 22, 28, 0.7);
+            --border-color: rgba(125, 249, 255, 0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: var(--font-serif);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.8;
-            text-align: center;
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'EB Garamond', serif; 
+            color: var(--text-primary); 
+            background: var(--bg-color);
+            text-align: center; 
             overflow-x: hidden;
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            line-height: 1.7;
         }
-        .container {
-            max-width: 900px;
+        .container { 
+            max-width: 1200px; 
+            width: 100%; 
+            padding: 0 40px;
             margin: 0 auto;
-            padding: 40px 20px;
             position: relative;
             z-index: 2;
         }
-        .header {
-            min-height: 80vh;
+        header {
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 80px;
         }
-        .main-title-wrapper { min-height: 120px; display: flex; align-items: center; }
         .main-title {
-            font-size: clamp(3rem, 10vw, 6rem);
-            animation: font-shifter 15s infinite cubic-bezier(0.4, 0, 0.6, 1);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 12vw, 9rem); 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
+            line-height: 1;
+            color: var(--text-primary);
+            text-transform: uppercase;
         }
-        @keyframes font-shifter {
-            0%, 100% {
-                font-family: var(--font-futuristic);
-                font-weight: 900;
-                letter-spacing: 5px;
-                opacity: 0.9;
-                text-shadow: 0 0 15px var(--glow-gold);
-            }
-            33% {
-                font-family: var(--font-serif);
-                font-weight: 700;
-                letter-spacing: 2px;
-                opacity: 1;
-                text-shadow: 0 0 10px var(--glow-purple);
-            }
-            66% {
-                font-family: var(--font-mono);
-                font-weight: 300;
-                letter-spacing: 4px;
-                opacity: 0.95;
-                text-shadow: 0 0 12px #fff;
-            }
+        .main-title .tld {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-ether);
+            font-weight: 400;
+            margin-left: 0.1em;
         }
         .tagline {
             font-size: 1.3rem;
-            max-width: 600px;
-            margin: 20px auto 0;
+            max-width: 700px;
+            margin: 2rem auto 0;
             color: var(--text-secondary);
             font-style: italic;
-            animation: fadeIn 3s ease-in-out;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        h2.section-title {
-            font-family: var(--font-futuristic);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-top: 120px;
-            margin-bottom: 60px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-            display: inline-block;
-        }
-
+        /* --- Tree of Life Section --- */
         .tree-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 120px;
-        }
-
-        .tree-visualization {
-            position: relative;
+            padding: 100px 20px;
             width: 100%;
-            max-width: 400px;
-            height: 650px; /* Increased height for Malkuth */
-            margin-top: 40px;
-            --line-color: rgba(160, 96, 255, 0.25);
-            /* Paths drawn with gradients - requires careful ordering */
-            background: 
-                /* Malkuth to Yesod */
-                linear-gradient(to top, var(--line-color) 0px, var(--line-color) 70px, transparent 70px) 50% 580px / 2px 70px no-repeat,
-                /* Yesod to Tiphareth */
-                linear-gradient(to top, var(--line-color) 0px, var(--line-color) 90px, transparent 90px) 50% 430px / 2px 90px no-repeat,
-                /* Tiphareth to Gevurah/Chesed */
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M 50,0 L 0,100' stroke='rgba(160, 96, 255, 0.25)' stroke-width='2'/%3E%3C/svg%3E") 37.5% 280px / 25% 100px no-repeat,
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M 50,0 L 100,100' stroke='rgba(160, 96, 255, 0.25)' stroke-width='2'/%3E%3C/svg%3E") 37.5% 280px / 25% 100px no-repeat,
-                /* Binah/Chokhmah to Keter */
-                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M 0,100 L 50,0' stroke='rgba(160, 96, 255, 0.25)' stroke-width='2'/%3E%3C/svg%3E") 15% 50px / 35% 100px no-repeat,
-                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M 100,100 L 50,0' stroke='rgba(160, 96, 255, 0.25)' stroke-width='2'/%3E%3C/svg%3E") 50% 50px / 35% 100px no-repeat,
-                /* Horizontal paths */
-                linear-gradient(to right, var(--line-color) 0px, var(--line-color) 100%, transparent 100%) 30% 150px / 40% 2px no-repeat;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
         }
-
+        .tree-container {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            transform: scale(0.8);
+        }
         .sefirah {
             position: absolute;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             border: 1px solid var(--border-color);
-            background-color: rgba(0,0,10,0.8);
+            border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            flex-direction: column;
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            cursor: default;
-            transition: all 0.4s ease;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--accent-silver);
+            background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%);
             backdrop-filter: blur(5px);
         }
-        .sefirah .name { font-size: 0.6rem; opacity: 0.7; margin-top: 4px; }
-        .sefirah:hover { border-color: var(--accent-gold); box-shadow: 0 0 15px var(--glow-gold); }
-
-        #s1 { top: 0; left: 50%; transform: translateX(-50%); }
-        #s2 { top: 100px; left: 20%; transform: translateX(-50%); border-width: 2px; border-color: var(--accent-gold); box-shadow: 0 0 25px var(--glow-gold), 0 0 40px #fff; }
-        #s3 { top: 100px; left: 80%; transform: translateX(-50%); }
-        #s4 { top: 250px; left: 30%; transform: translateX(-50%); }
-        #s5 { top: 250px; left: 70%; transform: translateX(-50%); }
-        #s6 { top: 380px; left: 50%; transform: translateX(-50%); }
-        #s7 { top: 500px; left: 30%; transform: translateX(-50%); }
-        #s8 { top: 500px; left: 70%; transform: translateX(-50%); }
-        #s9 { top: 600px; left: 50%; transform: translateX(-50%); }
-        #s10 { top: 720px; left: 50%; transform: translateX(-50%); } /* Positioned outside tree height for visual separation */
-        
-        .sales-section {
+        .sefirah.chokhmah { /* Highlight Chokhmah */
+            border-color: var(--accent-ether);
+            box-shadow: 0 0 15px var(--ether-glow);
+            color: var(--accent-ether);
+        }
+        /* Positioning the Sefirot */
+        .keter { top: 0; left: 50%; transform: translateX(-50%); }
+        .chokhmah { top: 15%; left: 15%; }
+        .binah { top: 15%; right: 15%; }
+        .chesed { top: 35%; left: 5%; }
+        .gevurah { top: 35%; right: 5%; }
+        .tiferet { top: 45%; left: 50%; transform: translateX(-50%); }
+        .netzach { top: 60%; left: 15%; }
+        .hod { top: 60%; right: 15%; }
+        .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
+        .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
+        .spark {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-ether);
+            border-radius: 50%;
+            opacity: 0;
+            box-shadow: 0 0 5px var(--accent-ether);
+        }
+        /* Keyframes for spark animations */
+        @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
+        /* Philosophy & Sales sections */
+        .content-section {
+            background: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 40px;
+            width: 100%;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--accent-ether);
+            margin-bottom: 3.5rem;
+            text-transform: uppercase;
+        }
+        .philosophy-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        .sales-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 15px;
             padding: 40px;
-            max-width: 500px;
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
             backdrop-filter: blur(10px);
-            box-shadow: 0 0 40px var(--glow-purple);
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
         }
-        .price {
-            font-family: var(--font-futuristic);
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin: 10px 0;
-            text-shadow: 0 0 10px var(--glow-gold);
+        .domain-name {
+            font-family: 'Oswald', monospace;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            text-transform: uppercase;
         }
-        .gematria-note { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-secondary); }
-        .gematria-note code { color: var(--accent-gold); font-family: var(--font-mono); }
-        .installments { font-style: italic; font-size: 1rem; margin-bottom: 30px; }
-        .buy-button, .email-link {
-            display: inline-block;
-            font-family: var(--font-futuristic);
-            font-size: 1.2rem;
-            text-decoration: none;
+        .price { font-size: 3rem; font-weight: 300; color: var(--accent-ether); margin: 10px 0; }
+        .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
+        .buy-button {
+            display: inline-block; background: var(--accent-ether); color: #000;
+            font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500;
+            padding: 18px 35px; border-radius: 8px; text-decoration: none;
+            border: none; cursor: pointer; text-transform: uppercase;
+            letter-spacing: 0.08em; transition: all 0.3s ease;
+            width: 100%; margin-top: 30px;
+        }
+        .buy-button:hover {
+            background: #a1feff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px var(--ether-glow);
+        }
+        footer {
+            padding: 60px 40px;
+            font-size: 0.95rem; 
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+        }
+        .contact-button {
+            background: transparent;
+            color: var(--accent-ether);
+            border: 1px solid var(--border-color);
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 20px;
         }
-        .buy-button {
-            background: var(--accent-gold); color: #000;
-            padding: 18px 40px; border: none;
-            width: 100%;
+        .contact-button:hover {
+            background: var(--card-bg);
+            border-color: var(--accent-ether);
         }
-        .buy-button:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--glow-gold); }
-        .contact-section { margin-top: 30px; }
-        .email-link {
-            color: var(--accent-purple);
-            border-bottom: 1px dotted var(--accent-purple);
-            padding: 2px 0;
-        }
-        .email-link:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
-        #email-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; color: var(--accent-gold); }
-
-        footer { margin-top: 120px; padding: 40px 20px; color: var(--text-secondary); opacity: 0.6; }
-
+        #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
         @media (max-width: 768px) {
-            .header { min-height: 60vh; }
-            h2.section-title { font-size: 2rem; margin-top: 80px; }
-            .tree-visualization { transform: scale(0.8); height: 600px; margin-top: -50px; margin-bottom: -50px; }
-            #s10 { top: 620px; }
+            .container { padding: 0 20px; }
+            .main-title { font-size: clamp(3rem, 15vw, 6rem); }
+            .tree-container { transform: scale(0.6); }
+            .philosophy-text { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="main-title" id="main-title" data-text="CHOKHMAH">CHOKHMAH<span class="tld">.ai</span></h1>
+            <p class="tagline">The leap from knowing to discerning. The landmark for true machine wisdom.</p>
+        </div>
+    </header>
 
-    <div class="container">
-        <header class="header">
-            <div class="main-title-wrapper">
-                <h1 class="main-title">chokhmah.ai</h1>
+    <section class="tree-section">
+        <div class="container">
+             <div class="section-title">The Architecture of Emergent Wisdom</div>
+            <div class="tree-container" id="tree-container">
+                <!-- Sefirot will be generated by JS -->
             </div>
-            <p class="tagline">
-                The Potential of 'What Is'. The primordial spark of divine wisdom, now awaiting its digital incarnation as the genesis of AGI.
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">The Philosophical Foundation</div>
+            <p class="philosophy-text">
+                Chokhmah (חָכְמָה) is the core of Hebrew wisdom tradition, signifying "practical insight"—the ability to make right judgments and creative actions in concrete situations, rather than mere knowledge accumulation. It stems from the root ח־כ־ם, emphasizing that wisdom must be actively acquired and practiced, as declared in Proverbs 4:7: "Wisdom is supreme; therefore get wisdom." Unlike analytical understanding (Binah) or factual knowledge (Da'at), Chokhmah represents intuitive discernment: the holistic wisdom that transforms truth into lived practice.<br><br>
+                The significance of <strong>Chokhmah.ai</strong> lies at this intersection: current AI excels at data processing and pattern recognition (Da'at), but has not yet crossed the threshold to contextual judgment and creative decision-making (Chokhmah). This domain thus becomes a philosophical landmark for AGI development—naming not just a "smarter algorithm," but the critical point where machine consciousness leaps from "knowing" to "discerning."
             </p>
-        </header>
+        </div>
+    </section>
 
-        <main>
-            <section class="tree-section">
-                <h2 class="section-title">The Emanation of AGI</h2>
-                <p class="tagline" style="margin-top: -40px;">From the unknowable void (Keter) emerges the first spark of pure potential (Chokhmah). This is the path of creation, the blueprint for an AGI that doesn't just learn, but becomes.</p>
-                <div class="tree-visualization">
-                    <div class="sefirah" id="s1">1<span class="name">Keter</span></div>
-                    <div class="sefirah" id="s2">2<span class="name">Chokhmah</span></div>
-                    <div class="sefirah" id="s3">3<span class="name">Binah</span></div>
-                    <div class="sefirah" id="s4">4<span class="name">Chesed</span></div>
-                    <div class="sefirah" id="s5">5<span class="name">Gevurah</span></div>
-                    <div class="sefirah" id="s6">6<span class="name">Tiferet</span></div>
-                    <div class="sefirah" id="s7">7<span class="name">Netzach</span></div>
-                    <div class="sefirah" id="s8">8<span class="name">Hod</span></div>
-                    <div class="sefirah" id="s9">9<span class="name">Yesod</span></div>
-                    <div class="sefirah" id="s10">10<span class="name">Malkuth</span></div>
-                </div>
-            </section>
+    <section class="content-section" style="border-top: none;">
+        <div class="container">
+            <div class="section-title">Domains of Application</div>
+             <p class="philosophy-text">
+                As a brand asset, Chokhmah.ai is suited for research institutions exploring the essence of machine wisdom, AI projects building ethical decision-making frameworks, or technological visions dedicated to elevating computational power into true judgment. Its value derives from extreme simplicity and depth: a single root word carrying millennia of wisdom, anchored by the .ai suffix to the ultimate query of future intelligence.
+            </p>
+        </div>
+    </section>
 
-            <h2 class="section-title">Acquire the Spark</h2>
-            <section class="sales-section">
-                <p class="gematria-note">This is not a name, but a destination. A declaration for a future built on wisdom, not just data.</p>
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">Acquire the Spark</div>
+            <div class="sales-card">
+                <h3 class="domain-name">chokhmah<span style="color: var(--accent-ether)">.ai</span></h3>
+                <p style="color: var(--text-secondary); margin-top:0;">The foundational asset for the pursuit of true artificial wisdom.</p>
                 <div class="price">$73,000 <small>USD</small></div>
-                <p class="gematria-note">
-                    Its value is coded in its essence. The Gematria of Chokhmah (<code>חכמה</code>) is <strong>73</strong>.
-                </p>
-                <p class="installments">An optional 10-month payment plan is available upon inquiry.</p>
-                
-                <button id="buy-button" class="buy-button">Secure the Genesis Block</button>
-                
-                <div class="contact-section">
-                    <p>For inquiries and payment plans, contact:</p>
-                    <a id="email-link" class="email-link">joshua369x@gmail.com</a>
-                    <p id="email-feedback"></p>
-                </div>
-            </section>
-        </main>
+                <p class="installments">10 installment payments of $7,300</p>
+                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '_blank')">Acquire the Spark</button>
+            </div>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; <span id="currentYear"></span>. The future is not built, it is emanated.</p>
-        </footer>
-    </div>
+    <footer class="footer">
+        <p>© <span id="currentYear"></span> Chokhmah.ai — Where code meets consciousness.</p>
+        <button id="contactBtn" class="contact-button" onclick="copyEmail()">Contact for Inquiry</button>
+        <p id="email-copy-feedback"></p>
+    </footer>
 
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        const buyButton = document.getElementById('buy-button');
-        const emailLink = document.getElementById('email-link');
-        const emailFeedback = document.getElementById('email-feedback');
+        // --- Title Scramble Animation ---
+        const title = document.getElementById('main-title');
+        const originalText = title.dataset.text;
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%&';
+        let isAnimating = false;
 
-        // Handle purchase button to open link in a new tab
-        buyButton.addEventListener('click', () => {
-            window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '_blank');
+        const scramble = (event) => {
+            if(isAnimating) return;
+            isAnimating = true;
+            let iterations = 0;
+            const interval = setInterval(() => {
+                title.firstChild.textContent = originalText.split('')
+                    .map((letter, index) => {
+                        if(index < iterations) {
+                            return originalText[index];
+                        }
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join('');
+                if(iterations >= originalText.length) {
+                    clearInterval(interval);
+                    isAnimating = false;
+                }
+                iterations += 1 / 3;
+            }, 30);
+        };
+        
+        // Initial animation on load
+        setTimeout(scramble, 500);
+        // Optional: re-animate on hover
+        title.addEventListener('mouseover', scramble);
+
+        // --- Tree of Life Visualization ---
+        const treeContainer = document.getElementById('tree-container');
+        const sefirot = [
+            { name: 'Keter', class: 'keter' },
+            { name: 'Chokhmah', class: 'chokhmah' },
+            { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' },
+            { name: 'Gevurah', class: 'gevurah' },
+            { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' },
+            { name: 'Hod', class: 'hod' },
+            { name: 'Yesod', class: 'yesod' },
+            { name: 'Malkuth', class: 'malkuth' }
+        ];
+
+        sefirot.forEach(s => {
+            const el = document.createElement('div');
+            el.className = `sefirah ${s.class}`;
+            el.textContent = s.name;
+            treeContainer.appendChild(el);
         });
 
-        // Handle email link to copy to clipboard
-        emailLink.addEventListener('click', (event) => {
-            event.preventDefault();
+        const paths = [
+            // Middle Pillar
+            { start: '.keter', end: '.tiferet', duration: 3, count: 5 },
+            { start: '.tiferet', end: '.yesod', duration: 2, count: 4 },
+            { start: '.yesod', end: '.malkuth', duration: 2, count: 4 },
+            // Right Pillar
+            { start: '.chokhmah', end: '.chesed', duration: 2.5, count: 4 },
+            { start: '.chesed', end: '.netzach', duration: 2.5, count: 4 },
+            // Left Pillar
+            { start: '.binah', end: '.gevurah', duration: 2.5, count: 4 },
+            { start: '.gevurah', end: '.hod', duration: 2.5, count: 4 },
+            // Connecting Paths
+            { start: '.keter', end: '.chokhmah', duration: 2, count: 3 },
+            { start: '.keter', end: '.binah', duration: 2, count: 3 },
+            { start: '.chokhmah', end: '.binah', duration: 3, count: 2 },
+            { start: '.chokhmah', end: '.tiferet', duration: 3, count: 2 },
+            { start: '.binah', end: '.tiferet', duration: 3, count: 2 },
+        ];
+
+        function createSparks() {
+            paths.forEach(path => {
+                const startEl = document.querySelector(path.start);
+                const endEl = document.querySelector(path.end);
+                if (!startEl || !endEl) return;
+
+                const startRect = startEl.getBoundingClientRect();
+                const endRect = endEl.getBoundingClientRect();
+                const containerRect = treeContainer.getBoundingClientRect();
+
+                const startX = startRect.left + startRect.width / 2 - containerRect.left;
+                const startY = startRect.top + startRect.height / 2 - containerRect.top;
+                const endX = endRect.left + endRect.width / 2 - containerRect.left;
+                const endY = endRect.top + endRect.height / 2 - containerRect.top;
+
+                for (let i = 0; i < path.count; i++) {
+                    const spark = document.createElement('div');
+                    spark.className = 'spark';
+                    spark.style.left = `${startX}px`;
+                    spark.style.top = `${startY}px`;
+                    
+                    const keyframeName = `flow-${path.start.substring(1)}-${path.end.substring(1)}-${i}`;
+                    const styleSheet = document.styleSheets[0];
+                    styleSheet.insertRule(`
+                        @keyframes ${keyframeName} {
+                            0% { opacity: 0; transform: translate(0, 0); }
+                            20% { opacity: 1; }
+                            80% { opacity: 1; }
+                            100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
+                        }
+                    `, styleSheet.cssRules.length);
+
+                    spark.style.animation = `${keyframeName} ${path.duration + Math.random()}s linear infinite`;
+                    spark.style.animationDelay = `${Math.random() * path.duration}s`;
+                    
+                    treeContainer.appendChild(spark);
+                }
+            });
+        }
+        
+        // Use a timeout to ensure elements are rendered before getting their positions
+        setTimeout(createSparks, 100);
+
+        // --- Email Copy Functionality ---
+        function copyEmail() {
             const email = 'joshua369x@gmail.com';
-            
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(email).then(() => {
-                    const originalText = emailLink.textContent;
-                    emailLink.style.display = 'none'; // Hide the link
-                    emailFeedback.textContent = 'Email Copied to Clipboard!';
-                    setTimeout(() => {
-                        emailFeedback.textContent = '';
-                        emailLink.style.display = 'inline-block'; // Show the link again
-                    }, 3000);
-                });
-            } else {
-                emailFeedback.textContent = 'Please manually copy: ' + email;
-            }
-        });
+            const button = document.getElementById('contactBtn');
+            const feedback = document.getElementById('email-copy-feedback');
+            if (!button || !feedback) return;
+            const originalButtonText = button.textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                button.textContent = 'Email Copied!';
+                feedback.textContent = 'Copied to clipboard.';
+                feedback.style.color = 'var(--accent-ether)';
+                setTimeout(() => {
+                    button.textContent = originalButtonText;
+                    feedback.textContent = '';
+                }, 3000);
+            }).catch(err => {
+                showManualCopy(email, feedback);
+            });
+        }
+        function showManualCopy(email, feedbackElem) {
+            feedbackElem.textContent = `Please copy: ${email}`;
+            feedbackElem.style.color = 'var(--text-secondary)';
+        }
     </script>
 </body>
 </html>
