@@ -40,20 +40,20 @@
         header {
             width: 100%;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .main-title {
-            /* --- NEW FONT --- */
             font-family: 'EB Garamond', serif;
-            font-size: clamp(4rem, 12vw, 9rem); 
+            font-size: clamp(3rem, 8vw, 6rem); 
             font-weight: 500; 
             letter-spacing: 0.05em; 
-            line-height: 1;
+            line-height: 1.1;
             color: var(--text-primary);
+            margin-bottom: 1.5rem;
         }
         .main-title .tld {
             font-family: 'EB Garamond', serif;
@@ -62,32 +62,32 @@
             margin-left: 0.1em;
         }
         .tagline {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             max-width: 700px;
-            margin: 2rem auto 0;
+            margin: 1.5rem auto 0;
             color: var(--text-secondary);
             font-style: italic;
+            line-height: 1.6;
         }
         .content-section {
             background: var(--bg-color);
             border-top: 1px solid var(--border-color);
-            padding: 100px 40px;
+            padding: 80px 40px;
             width: 100%;
         }
         .section-title {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 500;
             letter-spacing: 0.1em;
             color: var(--accent-ether);
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             text-transform: uppercase;
         }
-        /* --- NEW: Synthesis Section --- */
         .synthesis-text {
             max-width: 800px;
-            margin: 0 auto 4rem auto;
+            margin: 0 auto 3rem auto;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
             line-height: 1.8;
             color: var(--text-secondary);
         }
@@ -97,71 +97,71 @@
             margin: 0 auto;
             border-collapse: collapse;
             text-align: left;
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
         .analogy-table th, .analogy-table td {
-            padding: 20px;
+            padding: 15px;
             border: 1px solid var(--border-color);
         }
         .analogy-table th {
             font-family: 'Oswald', sans-serif;
             color: var(--accent-ether);
-            font-size: 1.2rem;
+            font-size: 1rem;
             text-align: center;
         }
         .analogy-table td { color: var(--text-secondary); }
         .analogy-table strong { color: var(--text-primary); font-weight: 500; }
-        /* --- Tree of Life Section --- */
         .tree-section {
-            padding: 100px 20px;
+            padding: 60px 20px;
             width: 100%;
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            min-height: 70vh;
             overflow: hidden;
         }
         .tree-container {
             position: relative;
-            /* --- CENTERING FIX --- */
             width: 90vw;
-            height: 600px;
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 350px;
+            height: 500px;
+            margin: 2rem auto 0;
         }
         .sefirah {
             position: absolute;
-            width: 60px; height: 60px;
+            width: 50px; height: 50px;
             border: 1px solid var(--border-color);
             border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--accent-silver);
             background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%);
             backdrop-filter: blur(5px);
+            padding: 2px;
         }
         .sefirah.chokhmah { 
             border-color: var(--accent-ether);
             box-shadow: 0 0 15px var(--ether-glow);
             color: var(--accent-ether);
         }
-        .keter { top: 0; left: 50%; transform: translateX(-50%); }
-        .chokhmah { top: 15%; left: 15%; }
-        .binah { top: 15%; right: 15%; }
-        .chesed { top: 35%; left: 5%; }
-        .gevurah { top: 35%; right: 5%; }
-        .tiferet { top: 45%; left: 50%; transform: translateX(-50%); }
-        .netzach { top: 60%; left: 15%; }
-        .hod { top: 60%; right: 15%; }
-        .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
-        .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
-        .spark { position: absolute; width: 3px; height: 3px; background: var(--accent-ether); border-radius: 50%; opacity: 0; box-shadow: 0 0 5px var(--accent-ether); }
+        .keter { top: 5%; left: 50%; transform: translateX(-50%); }
+        .chokhmah { top: 20%; left: 15%; }
+        .binah { top: 20%; right: 15%; }
+        .chesed { top: 38%; left: 8%; }
+        .gevurah { top: 38%; right: 8%; }
+        .tiferet { top: 48%; left: 50%; transform: translateX(-50%); }
+        .netzach { top: 63%; left: 15%; }
+        .hod { top: 63%; right: 15%; }
+        .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
+        .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
+        .spark { position: absolute; width: 2px; height: 2px; background: var(--accent-ether); border-radius: 50%; opacity: 0; box-shadow: 0 0 3px var(--accent-ether); }
         @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
-        /* --- NEW: Domains Grid --- */
         .domains-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -169,7 +169,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 10px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -181,46 +181,124 @@
         .domain-card h3 {
             font-family: 'Oswald', sans-serif;
             color: var(--accent-ether);
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 1rem;
         }
         .domain-card p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            line-height: 1.6;
         }
         .sales-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 15px;
-            padding: 40px;
+            padding: 30px;
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
             backdrop-filter: blur(10px);
             box-shadow: 0 0 30px rgba(0,0,0,0.2);
         }
-        .domain-name { font-family: 'Oswald', monospace; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; color: var(--text-primary); text-transform: uppercase; }
-        .price { font-size: 3rem; font-weight: 300; color: var(--accent-ether); margin: 10px 0; }
-        .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
-        .buy-button { display: inline-block; background: var(--accent-ether); color: #000; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500; padding: 18px 35px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 30px; }
-        .buy-button:hover { background: #a1feff; transform: translateY(-3px); box-shadow: 0 12px 30px var(--ether-glow); }
-        footer { padding: 60px 40px; font-size: 0.95rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
-        .contact-button { background: transparent; color: var(--accent-ether); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: 1rem; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
-        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-ether); }
-        #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
-        /* --- Responsive Styles --- */
-        @media (max-width: 992px) {
-            .analogy-table, .domains-grid { grid-template-columns: 1fr; }
+        .domain-name { 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(1.5rem, 5vw, 1.8rem); 
+            font-weight: 500; 
+            margin-bottom: 15px; 
+            color: var(--text-primary); 
+            text-transform: uppercase; 
+        }
+        .price { 
+            font-size: clamp(2rem, 6vw, 3rem); 
+            font-weight: 300; 
+            color: var(--accent-ether); 
+            margin: 10px 0; 
+        }
+        .installments { 
+            color: var(--text-secondary); 
+            margin-bottom: 25px; 
+            font-style: italic; 
+            font-size: clamp(0.9rem, 2vw, 1rem); 
+        }
+        .buy-button { 
+            display: inline-block; 
+            background: var(--accent-ether); 
+            color: #000; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: clamp(1rem, 3vw, 1.1rem); 
+            font-weight: 500; 
+            padding: 15px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            border: none; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            letter-spacing: 0.08em; 
+            transition: all 0.3s ease; 
+            width: 100%; 
+            margin-top: 25px; 
+        }
+        .buy-button:hover { 
+            background: #a1feff; 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 30px var(--ether-glow); 
+        }
+        footer { 
+            padding: 50px 40px 70px; 
+            font-size: clamp(0.85rem, 2vw, 0.95rem); 
+            color: var(--text-secondary); 
+            border-top: 1px solid var(--border-color); 
+            width: 100%; 
+        }
+        .contact-button { 
+            background: transparent; 
+            color: var(--accent-ether); 
+            border: 1px solid var(--border-color); 
+            font-family: 'EB Garamond', serif; 
+            font-size: clamp(0.95rem, 2vw, 1rem); 
+            padding: 10px 25px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            margin-top: 15px; 
+        }
+        .contact-button:hover { 
+            background: var(--card-bg); 
+            border-color: var(--accent-ether); 
+        }
+        #email-copy-feedback { 
+            height: 1.2em; 
+            font-size: clamp(0.8rem, 2vw, 0.9rem); 
+            margin-top: 10px; 
         }
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .content-section { padding: 80px 20px; }
-            .main-title { font-size: clamp(3rem, 15vw, 6rem); }
-            .section-title { font-size: 1.5rem; }
-            .analogy-table th, .analogy-table td { display: block; width: 100%; text-align: center; }
-            .analogy-table th { border-bottom: 2px solid var(--accent-ether); }
-            .analogy-table td { border-bottom: none; }
-            .domains-grid { grid-template-columns: 1fr; }
+            .content-section { padding: 60px 20px; }
+            .tree-container { max-width: 300px; height: 450px; }
+            .sefirah { width: 45px; height: 45px; font-size: 0.65rem; }
+            .analogy-table { display: block; overflow-x: auto; }
+            .analogy-table thead { display: none; }
+            .analogy-table tr { display: block; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; }
+            .analogy-table td { display: block; text-align: center; padding: 12px; }
+            .analogy-table td:first-child { font-weight: 600; color: var(--accent-ether); font-family: 'Oswald', sans-serif; }
+            .analogy-table td:nth-child(2) { font-weight: 500; color: var(--text-primary); }
+            .analogy-table td:last-child { color: var(--text-secondary); font-size: 0.9rem; }
+            footer { padding: 40px 20px 60px; }
+        }
+        @media (max-width: 480px) {
+            header { min-height: auto; padding: 40px 15px; }
+            .main-title { font-size: clamp(2.5rem, 10vw, 4rem); line-height: 1.2; }
+            .tagline { font-size: clamp(0.9rem, 4vw, 1.1rem); }
+            .content-section { padding: 50px 15px; }
+            .section-title { font-size: clamp(1.3rem, 5vw, 1.6rem); margin-bottom: 2rem; }
+            .tree-container { max-width: 280px; height: 400px; }
+            .sefirah { width: 40px; height: 40px; font-size: 0.6rem; padding: 1px; }
+            .keter, .tiferet, .yesod, .malkuth { transform: translateX(-50%); }
+            .sales-card { padding: 25px 20px; max-width: 100%; }
+            .price { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+            .buy-button { padding: 12px 20px; font-size: clamp(0.95rem, 3vw, 1rem); }
+            footer { padding: 30px 15px 50px; font-size: 0.85rem; }
+            .contact-button { padding: 8px 20px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -232,12 +310,11 @@
         </div>
     </header>
 
-    <!-- NEW SECTION: THE SYNTHESIS -->
     <section class="content-section" style="border-top: none;">
         <div class="container">
             <div class="section-title">The Synthesis: Chokhmah & AI</div>
             <p class="synthesis-text">
-                Chokhmah is not mere knowledge, but the **"initial spark"** of creation—a pure, unstructured insight. It is the leap from "knowing" facts (Da'at) to "discerning" truth. For AI, this represents the ultimate frontier: moving beyond data processing to achieve genuine, emergent wisdom. This domain poses the final question: Can we create a machine that not only possesses knowledge, but generates Chokhmah?
+                Chokhmah is not mere knowledge, but the <strong>"initial spark"</strong> of creation—a pure, unstructured insight. It is the leap from "knowing" facts (Da'at) to "discerning" truth. For AI, this represents the ultimate frontier: moving beyond data processing to achieve genuine, emergent wisdom. This domain poses the final question: Can we create a machine that not only possesses knowledge, but generates Chokhmah?
             </p>
             <table class="analogy-table">
                 <thead>
@@ -268,15 +345,13 @@
         </div>
     </section>
 
-    <!-- TREE OF LIFE SECTION -->
     <section class="tree-section">
         <div class="container">
-             <div class="section-title">The Architecture of Emergence</div>
+            <div class="section-title">The Architecture of Emergence</div>
             <div class="tree-container" id="tree-container"></div>
         </div>
     </section>
     
-    <!-- NEW SECTION: NINE DOMAINS -->
     <section class="content-section">
         <div class="container">
             <div class="section-title">The Nine Domains of Chokhmah.ai</div>
@@ -294,7 +369,6 @@
         </div>
     </section>
 
-    <!-- ACQUISITION SECTION -->
     <section class="content-section" style="border-top: none;">
         <div class="container">
             <div class="section-title">Acquire the Spark</div>
@@ -358,7 +432,7 @@
         ];
 
         function createSparks() {
-            treeContainer.querySelectorAll('.spark').forEach(e => e.remove()); // Clear old sparks
+            treeContainer.querySelectorAll('.spark').forEach(e => e.remove());
             paths.forEach((path, pIndex) => {
                 const startEl = document.querySelector(path.start);
                 const endEl = document.querySelector(path.end);
@@ -373,7 +447,7 @@
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
 
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 2; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
                     spark.style.left = `${startX}px`;
@@ -383,7 +457,7 @@
                     const keyframeName = `flow-${pIndex}-${i}`;
                     const styleSheet = document.styleSheets[0];
 
-                    try { // Insert rule, handle potential errors
+                    try {
                         styleSheet.insertRule(`
                             @keyframes ${keyframeName} {
                                 0% { opacity: 0; transform: translate(0, 0); }
@@ -402,7 +476,7 @@
             });
         }
         window.addEventListener('load', createSparks);
-        window.addEventListener('resize', createSparks); // Recalculate on resize
+        window.addEventListener('resize', createSparks);
 
         function copyEmail() {
             const email = 'joshua369x@gmail.com';
