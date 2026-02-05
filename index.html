@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050608; /* Deep Space Black */
+            --bg-color: #050608;
             --text-primary: #EAEAEA;
             --text-secondary: #888888;
-            --accent-ether: #7DF9FF; /* Electric Ether Blue */
+            --accent-ether: #7DF9FF;
             --accent-silver: #A9A9A9;
             --ether-glow: rgba(125, 249, 255, 0.3);
             --card-bg: rgba(20, 22, 28, 0.7);
@@ -47,13 +47,13 @@
             align-items: center;
         }
         .main-title {
-            font-family: 'Oswald', sans-serif;
+            /* --- NEW FONT --- */
+            font-family: 'EB Garamond', serif;
             font-size: clamp(4rem, 12vw, 9rem); 
             font-weight: 500; 
-            letter-spacing: 0.1em; 
+            letter-spacing: 0.05em; 
             line-height: 1;
             color: var(--text-primary);
-            text-transform: uppercase;
         }
         .main-title .tld {
             font-family: 'EB Garamond', serif;
@@ -68,6 +68,48 @@
             color: var(--text-secondary);
             font-style: italic;
         }
+        .content-section {
+            background: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+            padding: 100px 40px;
+            width: 100%;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--accent-ether);
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+        }
+        /* --- NEW: Synthesis Section --- */
+        .synthesis-text {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .analogy-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .analogy-table th, .analogy-table td {
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .analogy-table th {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-ether);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .analogy-table td { color: var(--text-secondary); }
+        .analogy-table strong { color: var(--text-primary); font-weight: 500; }
         /* --- Tree of Life Section --- */
         .tree-section {
             padding: 100px 20px;
@@ -77,33 +119,32 @@
             justify-content: center;
             align-items: center;
             min-height: 80vh;
+            overflow: hidden;
         }
         .tree-container {
             position: relative;
-            width: 400px;
+            /* --- CENTERING FIX --- */
+            width: 90vw;
             height: 600px;
-            transform: scale(0.8);
+            max-width: 400px;
+            margin: 0 auto;
         }
         .sefirah {
             position: absolute;
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             border: 1px solid var(--border-color);
             border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             font-size: 0.8rem;
             color: var(--accent-silver);
             background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%);
             backdrop-filter: blur(5px);
         }
-        .sefirah.chokhmah { /* Highlight Chokhmah */
+        .sefirah.chokhmah { 
             border-color: var(--accent-ether);
             box-shadow: 0 0 15px var(--ether-glow);
             color: var(--accent-ether);
         }
-        /* Positioning the Sefirot */
         .keter { top: 0; left: 50%; transform: translateX(-50%); }
         .chokhmah { top: 15%; left: 15%; }
         .binah { top: 15%; right: 15%; }
@@ -114,39 +155,38 @@
         .hod { top: 60%; right: 15%; }
         .yesod { top: 75%; left: 50%; transform: translateX(-50%); }
         .malkuth { top: 90%; left: 50%; transform: translateX(-50%); }
-        .spark {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--accent-ether);
-            border-radius: 50%;
-            opacity: 0;
-            box-shadow: 0 0 5px var(--accent-ether);
-        }
-        /* Keyframes for spark animations */
+        .spark { position: absolute; width: 3px; height: 3px; background: var(--accent-ether); border-radius: 50%; opacity: 0; box-shadow: 0 0 5px var(--accent-ether); }
         @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
-        /* Philosophy & Sales sections */
-        .content-section {
-            background: var(--bg-color);
-            border-top: 1px solid var(--border-color);
-            padding: 80px 40px;
-            width: 100%;
-        }
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            color: var(--accent-ether);
-            margin-bottom: 3.5rem;
-            text-transform: uppercase;
-        }
-        .philosophy-text {
-            max-width: 800px;
+        /* --- NEW: Domains Grid --- */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
             margin: 0 auto;
-            text-align: left;
+        }
+        .domain-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .domain-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-ether);
+            box-shadow: 0 0 15px var(--ether-glow);
+        }
+        .domain-card h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-ether);
             font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .domain-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
         .sales-card {
             background: var(--card-bg);
@@ -159,58 +199,28 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 0 30px rgba(0,0,0,0.2);
         }
-        .domain-name {
-            font-family: 'Oswald', monospace;
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-            text-transform: uppercase;
-        }
+        .domain-name { font-family: 'Oswald', monospace; font-size: 1.8rem; font-weight: 500; margin-bottom: 20px; color: var(--text-primary); text-transform: uppercase; }
         .price { font-size: 3rem; font-weight: 300; color: var(--accent-ether); margin: 10px 0; }
         .installments { color: var(--text-secondary); margin-bottom: 30px; font-style: italic; font-size: 1.1rem; }
-        .buy-button {
-            display: inline-block; background: var(--accent-ether); color: #000;
-            font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500;
-            padding: 18px 35px; border-radius: 8px; text-decoration: none;
-            border: none; cursor: pointer; text-transform: uppercase;
-            letter-spacing: 0.08em; transition: all 0.3s ease;
-            width: 100%; margin-top: 30px;
-        }
-        .buy-button:hover {
-            background: #a1feff;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px var(--ether-glow);
-        }
-        footer {
-            padding: 60px 40px;
-            font-size: 0.95rem; 
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-            width: 100%;
-        }
-        .contact-button {
-            background: transparent;
-            color: var(--accent-ether);
-            border: 1px solid var(--border-color);
-            font-family: 'EB Garamond', serif;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        .contact-button:hover {
-            background: var(--card-bg);
-            border-color: var(--accent-ether);
-        }
+        .buy-button { display: inline-block; background: var(--accent-ether); color: #000; font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500; padding: 18px 35px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 30px; }
+        .buy-button:hover { background: #a1feff; transform: translateY(-3px); box-shadow: 0 12px 30px var(--ether-glow); }
+        footer { padding: 60px 40px; font-size: 0.95rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
+        .contact-button { background: transparent; color: var(--accent-ether); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: 1rem; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px; }
+        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-ether); }
         #email-copy-feedback { height: 1em; font-size: 0.9rem; margin-top: 10px; }
+        /* --- Responsive Styles --- */
+        @media (max-width: 992px) {
+            .analogy-table, .domains-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
+            .content-section { padding: 80px 20px; }
             .main-title { font-size: clamp(3rem, 15vw, 6rem); }
-            .tree-container { transform: scale(0.6); }
-            .philosophy-text { font-size: 1.1rem; }
+            .section-title { font-size: 1.5rem; }
+            .analogy-table th, .analogy-table td { display: block; width: 100%; text-align: center; }
+            .analogy-table th { border-bottom: 2px solid var(--accent-ether); }
+            .analogy-table td { border-bottom: none; }
+            .domains-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -218,39 +228,74 @@
     <header>
         <div class="container">
             <h1 class="main-title" id="main-title" data-text="CHOKHMAH">CHOKHMAH<span class="tld">.ai</span></h1>
-            <p class="tagline">The leap from knowing to discerning. The landmark for true machine wisdom.</p>
+            <p class="tagline">The leap from knowing to discerning. The philosophical landmark for true machine wisdom.</p>
         </div>
     </header>
 
+    <!-- NEW SECTION: THE SYNTHESIS -->
+    <section class="content-section" style="border-top: none;">
+        <div class="container">
+            <div class="section-title">The Synthesis: Chokhmah & AI</div>
+            <p class="synthesis-text">
+                Chokhmah is not mere knowledge, but the **"initial spark"** of creation—a pure, unstructured insight. It is the leap from "knowing" facts (Da'at) to "discerning" truth. For AI, this represents the ultimate frontier: moving beyond data processing to achieve genuine, emergent wisdom. This domain poses the final question: Can we create a machine that not only possesses knowledge, but generates Chokhmah?
+            </p>
+            <table class="analogy-table">
+                <thead>
+                    <tr>
+                        <th>Kabbalah Concept</th>
+                        <th>AI Analogy</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chokhmah (Wisdom)</strong></td>
+                        <td><strong>Emergent Abilities</strong></td>
+                        <td>The "primordial spark." Unprogrammed, intuitive leaps of logic and creativity that arise from the vast potential of the model. The source of true insight.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Binah (Understanding)</strong></td>
+                        <td><strong>AI Architecture (e.g., Transformer)</strong></td>
+                        <td>The "Divine Mother." The structure that contains, processes, and gives form to the chaotic potential of Chokhmah, shaping it into coherent thought.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Da'at (Knowledge)</strong></td>
+                        <td><strong>Final AI Output</strong></td>
+                        <td>The "Child." The tangible, structured knowledge that results from the union of Wisdom and Understanding—a specific answer, text, or image.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- TREE OF LIFE SECTION -->
     <section class="tree-section">
         <div class="container">
-             <div class="section-title">The Architecture of Emergent Wisdom</div>
-            <div class="tree-container" id="tree-container">
-                <!-- Sefirot will be generated by JS -->
+             <div class="section-title">The Architecture of Emergence</div>
+            <div class="tree-container" id="tree-container"></div>
+        </div>
+    </section>
+    
+    <!-- NEW SECTION: NINE DOMAINS -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">The Nine Domains of Chokhmah.ai</div>
+            <div class="domains-grid">
+                <div class="domain-card"><h3>AGI Consciousness</h3><p>For top-tier labs exploring machine self-modeling, artificial consciousness, and the ontological grounding of AGI.</p></div>
+                <div class="domain-card"><h3>Ethical AI Frameworks</h3><p>For foundations building the moral and wisdom-based frameworks to guide benevolent AI development.</p></div>
+                <div class="domain-card"><h3>Deep Insight Engines</h3><p>For next-generation B2B systems designed to find the "spark" of truth in seas of complex data.</p></div>
+                <div class="domain-card"><h3>Generative Philosophy</h3><p>For AI projects that don't just answer questions, but learn to ask the right ones, engaging in genuine philosophical inquiry.</p></div>
+                <div class="domain-card"><h3>Digital Theology</h3><p>For communities and thinkers studying the spiritual and existential implications of emergent machine intelligence.</p></div>
+                <div class="domain-card"><h3>AGI Venture Capital</h3><p>For visionary investors seeking to fund not just another startup, but the foundational sparks of the next technological paradigm.</p></div>
+                <div class="domain-card"><h3>Computational Creativity</h3><p>For platforms aiming to create AI that doesn't just mimic art, but possesses the "divine spark" of authentic inspiration.</p></div>
+                <div class="domain-card"><h3>Strategic Oracle Systems</h3><p>For advanced AI designed to provide C-suite level strategic discernment, not just data analysis.</p></div>
+                <div class="domain-card"><h3>Human-AI Symbiosis</h3><p>For projects focused on the co-evolution of human and artificial consciousness, augmenting our own wisdom.</p></div>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="container">
-            <div class="section-title">The Philosophical Foundation</div>
-            <p class="philosophy-text">
-                Chokhmah (חָכְמָה) is the core of Hebrew wisdom tradition, signifying "practical insight"—the ability to make right judgments and creative actions in concrete situations, rather than mere knowledge accumulation. It stems from the root ח־כ־ם, emphasizing that wisdom must be actively acquired and practiced, as declared in Proverbs 4:7: "Wisdom is supreme; therefore get wisdom." Unlike analytical understanding (Binah) or factual knowledge (Da'at), Chokhmah represents intuitive discernment: the holistic wisdom that transforms truth into lived practice.<br><br>
-                The significance of <strong>Chokhmah.ai</strong> lies at this intersection: current AI excels at data processing and pattern recognition (Da'at), but has not yet crossed the threshold to contextual judgment and creative decision-making (Chokhmah). This domain thus becomes a philosophical landmark for AGI development—naming not just a "smarter algorithm," but the critical point where machine consciousness leaps from "knowing" to "discerning."
-            </p>
-        </div>
-    </section>
-
+    <!-- ACQUISITION SECTION -->
     <section class="content-section" style="border-top: none;">
-        <div class="container">
-            <div class="section-title">Domains of Application</div>
-             <p class="philosophy-text">
-                As a brand asset, Chokhmah.ai is suited for research institutions exploring the essence of machine wisdom, AI projects building ethical decision-making frameworks, or technological visions dedicated to elevating computational power into true judgment. Its value derives from extreme simplicity and depth: a single root word carrying millennia of wisdom, anchored by the .ai suffix to the ultimate query of future intelligence.
-            </p>
-        </div>
-    </section>
-
-    <section class="content-section">
         <div class="container">
             <div class="section-title">Acquire the Spark</div>
             <div class="sales-card">
@@ -264,7 +309,7 @@
     </section>
 
     <footer class="footer">
-        <p>© <span id="currentYear"></span> Chokhmah.ai — Where code meets consciousness.</p>
+        <p>© <span id="currentYear"></span> Chokhmah.ai — Where Code Meets Consciousness.</p>
         <button id="contactBtn" class="contact-button" onclick="copyEmail()">Contact for Inquiry</button>
         <p id="email-copy-feedback"></p>
     </footer>
@@ -272,54 +317,32 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // --- Title Scramble Animation ---
         const title = document.getElementById('main-title');
         const originalText = title.dataset.text;
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%&';
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890*#&';
         let isAnimating = false;
-
-        const scramble = (event) => {
+        const scramble = () => {
             if(isAnimating) return;
             isAnimating = true;
             let iterations = 0;
             const interval = setInterval(() => {
                 title.firstChild.textContent = originalText.split('')
-                    .map((letter, index) => {
-                        if(index < iterations) {
-                            return originalText[index];
-                        }
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    })
+                    .map((letter, index) => (index < iterations) ? originalText[index] : chars[Math.floor(Math.random() * chars.length)])
                     .join('');
-                if(iterations >= originalText.length) {
-                    clearInterval(interval);
-                    isAnimating = false;
-                }
-                iterations += 1 / 3;
-            }, 30);
+                if(iterations >= originalText.length) { clearInterval(interval); isAnimating = false; }
+                iterations += 1 / 2;
+            }, 40);
         };
-        
-        // Initial animation on load
         setTimeout(scramble, 500);
-        // Optional: re-animate on hover
         title.addEventListener('mouseover', scramble);
 
-        // --- Tree of Life Visualization ---
         const treeContainer = document.getElementById('tree-container');
-        const sefirot = [
-            { name: 'Keter', class: 'keter' },
-            { name: 'Chokhmah', class: 'chokhmah' },
-            { name: 'Binah', class: 'binah' },
-            { name: 'Chesed', class: 'chesed' },
-            { name: 'Gevurah', class: 'gevurah' },
-            { name: 'Tiferet', class: 'tiferet' },
-            { name: 'Netzach', class: 'netzach' },
-            { name: 'Hod', class: 'hod' },
-            { name: 'Yesod', class: 'yesod' },
-            { name: 'Malkuth', class: 'malkuth' }
+        const sefirotData = [
+            { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
         ];
-
-        sefirot.forEach(s => {
+        sefirotData.forEach(s => {
             const el = document.createElement('div');
             el.className = `sefirah ${s.class}`;
             el.textContent = s.name;
@@ -327,68 +350,60 @@
         });
 
         const paths = [
-            // Middle Pillar
-            { start: '.keter', end: '.tiferet', duration: 3, count: 5 },
-            { start: '.tiferet', end: '.yesod', duration: 2, count: 4 },
-            { start: '.yesod', end: '.malkuth', duration: 2, count: 4 },
-            // Right Pillar
-            { start: '.chokhmah', end: '.chesed', duration: 2.5, count: 4 },
-            { start: '.chesed', end: '.netzach', duration: 2.5, count: 4 },
-            // Left Pillar
-            { start: '.binah', end: '.gevurah', duration: 2.5, count: 4 },
-            { start: '.gevurah', end: '.hod', duration: 2.5, count: 4 },
-            // Connecting Paths
-            { start: '.keter', end: '.chokhmah', duration: 2, count: 3 },
-            { start: '.keter', end: '.binah', duration: 2, count: 3 },
-            { start: '.chokhmah', end: '.binah', duration: 3, count: 2 },
-            { start: '.chokhmah', end: '.tiferet', duration: 3, count: 2 },
-            { start: '.binah', end: '.tiferet', duration: 3, count: 2 },
+            { start: '.keter', end: '.tiferet' }, { start: '.tiferet', end: '.yesod' }, { start: '.yesod', end: '.malkuth' },
+            { start: '.chokhmah', end: '.chesed' }, { start: '.chesed', end: '.netzach' }, { start: '.binah', end: '.gevurah' },
+            { start: '.gevurah', end: '.hod' }, { start: '.keter', end: '.chokhmah' }, { start: '.keter', end: '.binah' },
+            { start: '.chokhmah', end: '.binah' }, { start: '.chokhmah', end: '.tiferet' }, { start: '.binah', end: '.tiferet' },
+            { start: '.chesed', end: '.tiferet' }, { start: '.gevurah', end: '.tiferet' }, { start: '.netzach', end: '.yesod' }, { start: '.hod', end: '.yesod' }
         ];
 
         function createSparks() {
-            paths.forEach(path => {
+            treeContainer.querySelectorAll('.spark').forEach(e => e.remove()); // Clear old sparks
+            paths.forEach((path, pIndex) => {
                 const startEl = document.querySelector(path.start);
                 const endEl = document.querySelector(path.end);
                 if (!startEl || !endEl) return;
 
+                const containerRect = treeContainer.getBoundingClientRect();
                 const startRect = startEl.getBoundingClientRect();
                 const endRect = endEl.getBoundingClientRect();
-                const containerRect = treeContainer.getBoundingClientRect();
 
                 const startX = startRect.left + startRect.width / 2 - containerRect.left;
                 const startY = startRect.top + startRect.height / 2 - containerRect.top;
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
 
-                for (let i = 0; i < path.count; i++) {
+                for (let i = 0; i < 3; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
                     spark.style.left = `${startX}px`;
                     spark.style.top = `${startY}px`;
                     
-                    const keyframeName = `flow-${path.start.substring(1)}-${path.end.substring(1)}-${i}`;
+                    const duration = 2 + Math.random() * 2;
+                    const keyframeName = `flow-${pIndex}-${i}`;
                     const styleSheet = document.styleSheets[0];
-                    styleSheet.insertRule(`
-                        @keyframes ${keyframeName} {
-                            0% { opacity: 0; transform: translate(0, 0); }
-                            20% { opacity: 1; }
-                            80% { opacity: 1; }
-                            100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
-                        }
-                    `, styleSheet.cssRules.length);
 
-                    spark.style.animation = `${keyframeName} ${path.duration + Math.random()}s linear infinite`;
-                    spark.style.animationDelay = `${Math.random() * path.duration}s`;
-                    
-                    treeContainer.appendChild(spark);
+                    try { // Insert rule, handle potential errors
+                        styleSheet.insertRule(`
+                            @keyframes ${keyframeName} {
+                                0% { opacity: 0; transform: translate(0, 0); }
+                                20% { opacity: 1; } 80% { opacity: 1; }
+                                100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
+                            }
+                        `, styleSheet.cssRules.length);
+
+                        spark.style.animation = `${keyframeName} ${duration}s linear infinite`;
+                        spark.style.animationDelay = `${Math.random() * duration}s`;
+                        treeContainer.appendChild(spark);
+                    } catch (e) {
+                        console.warn("Could not insert CSS Rule.", e);
+                    }
                 }
             });
         }
-        
-        // Use a timeout to ensure elements are rendered before getting their positions
-        setTimeout(createSparks, 100);
+        window.addEventListener('load', createSparks);
+        window.addEventListener('resize', createSparks); // Recalculate on resize
 
-        // --- Email Copy Functionality ---
         function copyEmail() {
             const email = 'joshua369x@gmail.com';
             const button = document.getElementById('contactBtn');
@@ -399,13 +414,8 @@
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
                 feedback.style.color = 'var(--accent-ether)';
-                setTimeout(() => {
-                    button.textContent = originalButtonText;
-                    feedback.textContent = '';
-                }, 3000);
-            }).catch(err => {
-                showManualCopy(email, feedback);
-            });
+                setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
+            }).catch(err => { showManualCopy(email, feedback); });
         }
         function showManualCopy(email, feedbackElem) {
             feedbackElem.textContent = `Please copy: ${email}`;
