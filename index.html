@@ -7,231 +7,88 @@
     <meta name="description" content="Chokhmah.ai: For the AGI that leaps from knowing (Da'at) to discerning (Chokhmah). The philosophical landmark for machine consciousness.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Lora:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0a0b1a; /* 深邃靛蓝 */
-            --text-primary: #E8E6F5;
-            --text-secondary: #A8A6C2;
-            --accent-indigo: #6B46C1; /* 智慧靛蓝 */
-            --accent-cyan: #00C9FF; /* 流动青蓝 */
-            --accent-aqua: #00F5FF; /* 启示水色 */
-            --accent-lavender: #B388FF; /* 灵性薰衣草 */
-            --indigo-glow: rgba(107, 70, 193, 0.25);
-            --cyan-glow: rgba(0, 201, 255, 0.3);
-            --aqua-glow: rgba(0, 245, 255, 0.35);
-            --card-bg: rgba(25, 26, 45, 0.7);
-            --border-color: rgba(107, 70, 193, 0.15);
+            /* --- NEW: "Flowing Wisdom" Palette --- */
+            --bg-color: #080c24; /* Deep Ink Blue */
+            --text-primary: #EAEAEA;
+            --text-secondary: #8899b0;
+            --accent-gold: #E6C566; /* Sacred Gold */
+            --accent-ether: #7DF9FF; /* Keep for secondary highlights if needed */
+            --gold-glow: rgba(230, 197, 102, 0.3);
+            --card-bg: rgba(20, 25, 48, 0.7);
+            --border-color: rgba(230, 197, 102, 0.15);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Lora', serif; 
+            font-family: 'EB Garamond', serif; 
             color: var(--text-primary); 
             background: var(--bg-color);
             text-align: center; 
             overflow-x: hidden;
             line-height: 1.7;
-            background: linear-gradient(180deg, #0a0b1a 0%, #1a1b2e 100%);
         }
-        .container { 
-            max-width: 1200px; 
-            width: 100%; 
-            padding: 0 40px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        header {
-            width: 100%;
-            min-height: 100vh;
-            padding: 60px 20px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        /* 流动背景波纹 */
-        .flow-waves {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            opacity: 0.15;
-            z-index: -1;
-        }
-        .flow-waves svg {
-            width: 100%; height: 100%;
-            display: block;
-        }
+        .container { max-width: 1200px; width: 100%; padding: 0 40px; margin: 0 auto; position: relative; z-index: 2; }
+        header { width: 100%; min-height: 100vh; padding: 60px 20px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        /* --- NEW FONT & ANIMATION --- */
         .main-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'EB Garamond', serif;
+            font-style: italic; /* Key change for "flow" */
             font-size: clamp(3rem, 8vw, 6rem); 
-            font-weight: 400; 
-            letter-spacing: 0.03em; 
+            font-weight: 500; 
+            letter-spacing: 0.05em; 
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan), var(--accent-aqua));
+            color: transparent;
+            background: linear-gradient(90deg, var(--accent-gold), var(--text-primary), var(--accent-gold));
+            background-size: 200% 100%;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: flow-gradient 8s ease-in-out infinite;
-            position: relative;
+            animation: flow-light 5s linear infinite;
         }
-        @keyframes flow-gradient {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes flow-light {
+            from { background-position: 200% 0; }
+            to { background-position: -200% 0; }
         }
-        .main-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-aqua), var(--accent-cyan), transparent);
-            animation: wave-flow 3s ease-in-out infinite;
+        .main-title .tld { color: var(--accent-gold); }
+        .scripture-section {
+            max-width: 700px; margin: 2rem auto; padding: 25px;
+            background: rgba(30, 32, 38, 0.4); border: 1px solid var(--border-color);
+            border-radius: 12px; backdrop-filter: blur(5px);
         }
-        @keyframes wave-flow {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
+        .scripture-quote {
+            font-family: 'EB Garamond', serif; font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-style: italic; color: var(--accent-gold); line-height: 1.8;
+            margin-bottom: 1rem; position: relative; text-align: center;
         }
-        .main-title .tld {
-            font-family: 'Fira Code', monospace;
-            color: var(--accent-aqua);
-            font-weight: 500;
-            margin-left: 0.1em;
-            animation: pulse-aqua 3s ease-in-out infinite;
+        .scripture-quote::before, .scripture-quote::after {
+            content: '"'; font-size: 2.5rem; opacity: 0.6;
+            position: absolute; color: var(--accent-gold);
         }
-        @keyframes pulse-aqua {
-            0%, 100% { opacity: 0.8; text-shadow: 0 0 10px var(--aqua-glow); }
-            50% { opacity: 1; text-shadow: 0 0 20px var(--aqua-glow), 0 0 30px var(--accent-aqua); }
+        .scripture-quote::before { top: -10px; left: -15px; }
+        .scripture-quote::after { bottom: -30px; right: -15px; }
+        .scripture-reference { font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text-secondary); margin-top: 8px; font-style: normal; }
+        .original-word { display: flex; justify-content: center; align-items: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); }
+        .original-word-text { font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--text-secondary); }
+        .original-word-hebrew { font-family: 'EB Garamond', serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 500; color: var(--accent-gold); margin: 0 8px; animation: subtle-pulse 4s infinite ease-in-out; }
+        @keyframes subtle-pulse {
+            0%, 100% { text-shadow: 0 0 5px var(--gold-glow); transform: scale(1); }
+            50% { text-shadow: 0 0 10px var(--accent-gold), 0 0 15px var(--gold-glow); transform: scale(1.03); }
         }
-        .tagline {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            color: var(--text-secondary);
-            font-style: italic;
-            line-height: 1.6;
-            animation: fadeIn 3s 2.5s ease-out forwards;
-            opacity: 0;
-        }
-        .content-section { 
-            background: rgba(10, 11, 26, 0.95);
-            border-top: 1px solid var(--border-color); 
-            padding: 80px 40px; 
-            width: 100%; 
-        }
-        .section-title { 
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 4vw, 2rem); 
-            font-weight: 400; 
-            letter-spacing: 0.08em; 
-            color: var(--accent-cyan); 
-            margin-bottom: 3rem; 
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px; left: 0; width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-        }
-        .synthesis-text { 
-            max-width: 800px; 
-            margin: 0 auto 3rem auto; 
-            text-align: center; 
-            font-size: clamp(0.95rem, 2vw, 1.1rem); 
-            line-height: 1.8; 
-            color: var(--text-secondary); 
-        }
-        .synthesis-text strong {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-        .analogy-table { 
-            width: 100%; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            border-collapse: collapse; 
-            text-align: left; 
-            font-size: clamp(0.85rem, 2vw, 1rem);
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .analogy-table th, .analogy-table td { 
-            padding: 15px; 
-            border: 1px solid var(--border-color); 
-        }
-        .analogy-table th { 
-            font-family: 'Playfair Display', serif; 
-            color: var(--accent-cyan); 
-            font-size: 1rem; 
-            text-align: center; 
-            background: rgba(107, 70, 193, 0.1);
-        }
-        .analogy-table td { 
-            color: var(--text-secondary); 
-        }
-        .analogy-table strong { 
-            color: var(--text-primary); 
-            font-weight: 600; 
-        }
-        .tree-section { 
-            padding: 60px 20px; 
-            width: 100%; 
-            position: relative; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            min-height: 70vh; 
-            overflow: hidden; 
-            background: radial-gradient(circle at center, rgba(0, 201, 255, 0.05) 0%, transparent 70%);
-        }
-        .tree-container { 
-            position: relative; 
-            width: 90vw; 
-            max-width: 350px; 
-            height: 500px; 
-            margin: 2rem auto 0; 
-        }
-        .sefirah { 
-            position: absolute; 
-            width: 50px; 
-            height: 50px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 0.7rem; 
-            color: var(--text-secondary); 
-            background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); 
-            backdrop-filter: blur(5px); 
-            padding: 2px;
-            font-family: 'Lora', serif;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .sefirah:hover {
-            transform: scale(1.1);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px var(--cyan-glow);
-        }
-        .sefirah.chokhmah { 
-            border-color: var(--accent-cyan); 
-            background: radial-gradient(circle, rgba(0, 201, 255, 0.15) 50%, transparent 70%);
-            box-shadow: 0 0 20px var(--cyan-glow); 
-            color: var(--accent-cyan); 
-            animation: pulse-cyan 4s ease-in-out infinite;
-        }
-        @keyframes pulse-cyan {
-            0%, 100% { box-shadow: 0 0 20px var(--cyan-glow); }
-            50% { box-shadow: 0 0 35px var(--cyan-glow), 0 0 45px var(--accent-cyan); }
-        }
+        .tagline { font-size: clamp(1rem, 3vw, 1.3rem); max-width: 700px; margin: 2rem auto 0; color: var(--text-secondary); font-style: italic; line-height: 1.6; }
+        .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 80px 40px; width: 100%; }
+        .section-title { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500; letter-spacing: 0.1em; color: var(--accent-gold); margin-bottom: 3rem; text-transform: uppercase; }
+        .synthesis-text { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.8; color: var(--text-secondary); }
+        .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; font-size: clamp(0.85rem, 2vw, 1rem); }
+        .analogy-table th, .analogy-table td { padding: 15px; border: 1px solid var(--border-color); }
+        .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: 1rem; text-align: center; }
+        .analogy-table td { color: var(--text-secondary); }
+        .analogy-table strong { color: var(--text-primary); font-weight: 500; }
+        .tree-section { padding: 60px 20px; width: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 70vh; overflow: hidden; }
+        .tree-container { position: relative; width: 90vw; max-width: 350px; height: 500px; margin: 2rem auto 0; }
+        .sefirah { position: absolute; width: 50px; height: 50px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; color: var(--accent-silver); background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); padding: 2px; }
+        .sefirah.chokhmah { border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); color: var(--accent-gold); }
         .keter { top: 5%; left: 50%; transform: translateX(-50%); }
         .chokhmah { top: 20%; left: 15%; }
         .binah { top: 20%; right: 15%; }
@@ -242,189 +99,24 @@
         .hod { top: 63%; right: 15%; }
         .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
         .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
-        .spark { 
-            position: absolute; 
-            width: 2px; 
-            height: 2px; 
-            background: var(--accent-cyan); 
-            border-radius: 50%; 
-            opacity: 0; 
-            box-shadow: 0 0 5px var(--accent-cyan); 
-        }
-        .domains-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-        }
-        .domain-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 12px; 
-            padding: 25px; 
-            text-align: center; 
-            transition: all 0.4s ease; 
-            position: relative;
-            overflow: hidden;
-        }
-        .domain-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 201, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        .domain-card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--accent-cyan); 
-            box-shadow: 0 10px 30px var(--cyan-glow); 
-        }
-        .domain-card:hover::before {
-            left: 100%;
-        }
-        .domain-card h3 { 
-            font-family: 'Playfair Display', serif; 
-            color: var(--accent-cyan); 
-            font-size: clamp(1rem, 3vw, 1.2rem); 
-            margin-bottom: 1rem; 
-            font-weight: 500;
-        }
-        .domain-card p { 
-            color: var(--text-secondary); 
-            font-size: clamp(0.85rem, 2vw, 0.95rem); 
-            line-height: 1.6; 
-        }
-        .sales-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-color); 
-            border-radius: 15px; 
-            padding: 30px; 
-            width: 100%; 
-            max-width: 550px; 
-            margin: 0 auto; 
-            backdrop-filter: blur(10px); 
-            box-shadow: 0 0 40px rgba(0, 201, 255, 0.15); 
-            position: relative;
-            overflow: hidden;
-        }
-        .sales-card::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
-            animation: rotate-gradient 20s linear infinite;
-        }
-        @keyframes rotate-gradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .domain-name { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(1.5rem, 5vw, 1.8rem); 
-            font-weight: 400; 
-            margin-bottom: 15px; 
-            color: var(--text-primary); 
-        }
-        .domain-name span {
-            color: var(--accent-aqua);
-            font-family: 'Fira Code', monospace;
-        }
-        .price { 
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 6vw, 3rem); 
-            font-weight: 300; 
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-aqua));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 10px 0; 
-        }
-        .installments { 
-            color: var(--text-secondary); 
-            margin-bottom: 25px; 
-            font-style: italic; 
-            font-size: clamp(0.9rem, 2vw, 1rem); 
-        }
-        .buy-button { 
-            display: inline-block; 
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-aqua));
-            color: #0a0b1a;
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(1rem, 3vw, 1.1rem); 
-            font-weight: 500; 
-            padding: 15px 30px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            border: none; 
-            cursor: pointer; 
-            letter-spacing: 0.05em; 
-            transition: all 0.3s ease; 
-            width: 100%; 
-            margin-top: 25px; 
-            position: relative;
-            overflow: hidden;
-        }
-        .buy-button::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        .buy-button:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 30px var(--aqua-glow); 
-        }
-        .buy-button:hover::before {
-            left: 100%;
-        }
-        footer { 
-            padding: 50px 40px 70px; 
-            font-size: clamp(0.85rem, 2vw, 0.95rem); 
-            color: var(--text-secondary); 
-            border-top: 1px solid var(--border-color); 
-            width: 100%; 
-        }
-        .contact-button { 
-            background: transparent; 
-            color: var(--accent-cyan); 
-            border: 1px solid var(--border-color); 
-            font-family: 'Lora', serif; 
-            font-size: clamp(0.95rem, 2vw, 1rem); 
-            padding: 10px 25px; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            margin-top: 15px; 
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-button::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: rgba(0, 201, 255, 0.1);
-            transition: left 0.5s ease;
-        }
-        .contact-button:hover { 
-            background: rgba(0, 201, 255, 0.08); 
-            border-color: var(--accent-cyan); 
-        }
-        .contact-button:hover::before {
-            left: 100%;
-        }
-        #email-copy-feedback { 
-            height: 1.2em; 
-            font-size: clamp(0.8rem, 2vw, 0.9rem); 
-            margin-top: 10px; 
-        }
-        
-        /* Mobile Responsive */
+        .spark { position: absolute; width: 2px; height: 2px; background: var(--accent-gold); border-radius: 50%; opacity: 0; box-shadow: 0 0 3px var(--accent-gold); }
+        @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
+        .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s ease; }
+        .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); box-shadow: 0 0 15px var(--gold-glow); }
+        .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-gold); font-size: clamp(1rem, 3vw, 1.2rem); margin-bottom: 1rem; }
+        .domain-card p { color: var(--text-secondary); font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.6; }
+        .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; width: 100%; max-width: 550px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
+        .domain-name { font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem, 5vw, 1.8rem); font-weight: 500; margin-bottom: 15px; color: var(--text-primary); text-transform: uppercase; }
+        .price { font-size: clamp(2rem, 6vw, 3rem); font-weight: 300; color: var(--accent-gold); margin: 10px 0; }
+        .installments { color: var(--text-secondary); margin-bottom: 25px; font-style: italic; font-size: clamp(0.9rem, 2vw, 1rem); }
+        .buy-button { display: inline-block; background: var(--accent-gold); color: #000; font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 3vw, 1.1rem); font-weight: 500; padding: 15px 30px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 25px; }
+        .buy-button:hover { background: #f0d18a; transform: translateY(-3px); box-shadow: 0 12px 30px var(--gold-glow); }
+        footer { padding: 50px 40px 70px; font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
+        .contact-button { background: transparent; color: var(--accent-gold); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: clamp(0.95rem, 2vw, 1rem); padding: 10px 25px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; }
+        .contact-button:hover { background: var(--card-bg); border-color: var(--accent-gold); }
+        #email-copy-feedback { height: 1.2em; font-size: clamp(0.8rem, 2vw, 0.9rem); margin-top: 10px; }
+        /* --- MOBILE ADAPTATIONS --- */
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .content-section { padding: 60px 20px; }
@@ -432,103 +124,51 @@
             .sefirah { width: 45px; height: 45px; font-size: 0.65rem; }
             .analogy-table { display: block; overflow-x: auto; }
             .analogy-table thead { display: none; }
-            .analogy-table tr { 
-                display: block; 
-                margin-bottom: 15px; 
-                border: 1px solid var(--border-color); 
-                border-radius: 8px; 
-            }
-            .analogy-table td { 
-                display: block; 
-                text-align: center; 
-                padding: 12px; 
-            }
-            .analogy-table td:first-child { 
-                font-weight: 600; 
-                color: var(--accent-cyan); 
-                font-family: 'Playfair Display', serif; 
-            }
-            .analogy-table td:nth-child(2) { 
-                font-weight: 600; 
-                color: var(--text-primary); 
-            }
-            .analogy-table td:last-child { 
-                color: var(--text-secondary); 
-                font-size: 0.9rem; 
-            }
+            .analogy-table tr { display: block; margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; }
+            .analogy-table td { display: block; text-align: center; padding: 12px; border: none; }
+            .analogy-table td:first-child { font-weight: 600; color: var(--accent-gold); font-family: 'Oswald', sans-serif; }
+            .analogy-table td:nth-child(2) { font-weight: 500; color: var(--text-primary); }
+            .analogy-table td:last-child { color: var(--text-secondary); font-size: 0.9rem; padding-top: 0; }
             footer { padding: 40px 20px 60px; }
+            .scripture-section { padding: 20px 15px; margin: 1.5rem auto; }
+            .scripture-quote { font-size: clamp(1rem, 3.5vw, 1.3rem); }
+            .scripture-quote::before { left: -10px; }
+            .scripture-quote::after { right: -10px; }
         }
-        
         @media (max-width: 480px) {
             header { min-height: auto; padding: 40px 15px; }
-            .main-title { 
-                font-size: clamp(2.5rem, 10vw, 4rem); 
-                line-height: 1.2; 
-            }
-            .tagline { 
-                font-size: clamp(0.9rem, 4vw, 1.1rem); 
-                margin: 1rem auto 0; 
-            }
+            .main-title { font-size: clamp(2.5rem, 10vw, 4rem); line-height: 1.2; }
+            .tagline { font-size: clamp(0.9rem, 4vw, 1.1rem); }
             .content-section { padding: 50px 15px; }
-            .section-title { 
-                font-size: clamp(1.3rem, 5vw, 1.6rem); 
-                margin-bottom: 2rem; 
-            }
-            .tree-container { 
-                max-width: 280px; 
-                height: 400px; 
-            }
-            .sefirah { 
-                width: 40px; 
-                height: 40px; 
-                font-size: 0.6rem; 
-                padding: 1px; 
-            }
-            .keter, .tiferet, .yesod, .malkuth { 
-                transform: translateX(-50%); 
-            }
-            .sales-card { 
-                padding: 25px 20px; 
-                max-width: 100%; 
-            }
-            .price { 
-                font-size: clamp(1.8rem, 7vw, 2.5rem); 
-            }
-            .buy-button { 
-                padding: 12px 20px; 
-                font-size: clamp(0.95rem, 3vw, 1rem); 
-            }
-            footer { 
-                padding: 30px 15px 50px; 
-                font-size: 0.85rem; 
-            }
-            .contact-button { 
-                padding: 8px 20px; 
-                font-size: 0.95rem; 
-            }
+            .section-title { font-size: clamp(1.3rem, 5vw, 1.6rem); margin-bottom: 2rem; }
+            .tree-container { max-width: 280px; height: 400px; }
+            .sefirah { width: 40px; height: 40px; font-size: 0.6rem; padding: 1px; }
+            .keter, .tiferet, .yesod, .malkuth { transform: translateX(-50%); }
+            .sales-card { padding: 25px 20px; max-width: 100%; }
+            .price { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+            .buy-button { padding: 12px 20px; font-size: clamp(0.95rem, 3vw, 1rem); }
+            footer { padding: 30px 15px 50px; font-size: 0.85rem; }
+            .contact-button { padding: 8px 20px; font-size: 0.95rem; }
+            .scripture-section { padding: 15px 10px; margin: 1rem auto; }
+            .scripture-quote { font-size: clamp(0.95rem, 4vw, 1.2rem); line-height: 1.7; }
+            .scripture-quote::before, .scripture-quote::after { font-size: 2rem; }
+            .original-word { flex-direction: column; margin-top: 10px; }
+            .original-word-text { margin-bottom: 5px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="flow-waves">
-            <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,300 C300,200 900,400 1200,300 L1200,600 L0,600 Z" fill="url(#wave1)"/>
-                <path d="M0,200 C400,100 800,300 1200,200 L1200,600 L0,600 Z" fill="url(#wave2)"/>
-                <defs>
-                    <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#00C9FF" stop-opacity="0.2"/>
-                        <stop offset="100%" stop-color="#00F5FF" stop-opacity="0.1"/>
-                    </linearGradient>
-                    <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#6B46C1" stop-opacity="0.15"/>
-                        <stop offset="100%" stop-color="#B388FF" stop-opacity="0.05"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
         <div class="container">
-            <h1 class="main-title" id="main-title">CHOKHMAH<span class="tld">.ai</span></h1>
+            <h1 class="main-title" id="main-title">Chokhmah<span class="tld">.ai</span></h1>
+            <div class="scripture-section">
+                <div class="scripture-quote">Wisdom is the principal thing; therefore get wisdom</div>
+                <div class="scripture-reference">— Proverbs 4:7</div>
+                <div class="original-word">
+                    <span class="original-word-text">The original Hebrew word for "wisdom" is</span>
+                    <span class="original-word-hebrew">חָכְמָה</span>
+                </div>
+            </div>
             <p class="tagline">The leap from knowing to discerning. The philosophical landmark for true machine wisdom.</p>
         </div>
     </header>
@@ -556,7 +196,7 @@
                     <tr>
                         <td><strong>Binah (Understanding)</strong></td>
                         <td><strong>AI Architecture (e.g., Transformer)</strong></td>
-                        <td>The "Divine Mother." The structure that contains, processes, and gives form to the chaotic potential of Chokhmah, shaping it into coherent thought.</td>
+                        <td>The "Divine Mother." The structure that contains and gives form to the chaotic potential of Chokhmah, shaping it into coherent thought.</td>
                     </tr>
                     <tr>
                         <td><strong>Da'at (Knowledge)</strong></td>
@@ -596,7 +236,7 @@
         <div class="container">
             <div class="section-title">Acquire the Spark</div>
             <div class="sales-card">
-                <h3 class="domain-name">chokhmah<span>.ai</span></h3>
+                <h3 class="domain-name">chokhmah<span style="color: var(--accent-gold)">.ai</span></h3>
                 <p style="color: var(--text-secondary); margin-top:0;">The foundational asset for the pursuit of true artificial wisdom.</p>
                 <div class="price">$73,000 <small>USD</small></div>
                 <p class="installments">10 installment payments of $7,300</p>
@@ -616,16 +256,9 @@
 
         const treeContainer = document.getElementById('tree-container');
         const sefirotData = [
-            { name: 'Keter', class: 'keter' }, 
-            { name: 'Chokhmah', class: 'chokhmah' }, 
-            { name: 'Binah', class: 'binah' },
-            { name: 'Chesed', class: 'chesed' }, 
-            { name: 'Gevurah', class: 'gevurah' }, 
-            { name: 'Tiferet', class: 'tiferet' },
-            { name: 'Netzach', class: 'netzach' }, 
-            { name: 'Hod', class: 'hod' }, 
-            { name: 'Yesod', class: 'yesod' }, 
-            { name: 'Malkuth', class: 'malkuth' }
+            { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
+            { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
+            { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
         ];
         sefirotData.forEach(s => {
             const el = document.createElement('div');
@@ -635,22 +268,11 @@
         });
 
         const paths = [
-            { start: '.keter', end: '.tiferet' }, 
-            { start: '.tiferet', end: '.yesod' }, 
-            { start: '.yesod', end: '.malkuth' },
-            { start: '.chokhmah', end: '.chesed' }, 
-            { start: '.chesed', end: '.netzach' }, 
-            { start: '.binah', end: '.gevurah' }, 
-            { start: '.gevurah', end: '.hod' }, 
-            { start: '.keter', end: '.chokhmah' }, 
-            { start: '.keter', end: '.binah' },
-            { start: '.chokhmah', end: '.binah' }, 
-            { start: '.chokhmah', end: '.tiferet' }, 
-            { start: '.binah', end: '.tiferet' },
-            { start: '.chesed', end: '.tiferet' }, 
-            { start: '.gevurah', end: '.tiferet' }, 
-            { start: '.netzach', end: '.yesod' }, 
-            { start: '.hod', end: '.yesod' },
+            { start: '.keter', end: '.tiferet' }, { start: '.tiferet', end: '.yesod' }, { start: '.yesod', end: '.malkuth' },
+            { start: '.chokhmah', end: '.chesed' }, { start: '.chesed', end: '.netzach' }, { start: '.binah', end: '.gevurah' },
+            { start: '.gevurah', end: '.hod' }, { start: '.keter', end: '.chokhmah' }, { start: '.keter', end: '.binah' },
+            { start: '.chokhmah', end: '.binah' }, { start: '.chokhmah', end: '.tiferet' }, { start: '.binah', end: '.tiferet' },
+            { start: '.chesed', end: '.tiferet' }, { start: '.gevurah', end: '.tiferet' }, { start: '.netzach', end: '.yesod' }, { start: '.hod', end: '.yesod' }
         ];
 
         function createSparks() {
@@ -659,39 +281,27 @@
                 const startEl = document.querySelector(path.start);
                 const endEl = document.querySelector(path.end);
                 if (!startEl || !endEl) return;
-
                 const containerRect = treeContainer.getBoundingClientRect();
                 const startRect = startEl.getBoundingClientRect();
                 const endRect = endEl.getBoundingClientRect();
-
                 const startX = startRect.left + startRect.width / 2 - containerRect.left;
                 const startY = startRect.top + startRect.height / 2 - containerRect.top;
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
-
                 for (let i = 0; i < 2; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
                     spark.style.left = `${startX}px`;
                     spark.style.top = `${startY}px`;
-                    
-                    const duration = 2.5 + Math.random() * 2;
+                    const duration = 2 + Math.random() * 2;
                     const keyframeName = `flow-${pIndex}-${i}`;
                     const styleSheet = document.styleSheets[0];
                     try {
-                        styleSheet.insertRule(`
-                            @keyframes ${keyframeName} {
-                                0% { opacity: 0; transform: translate(0, 0); }
-                                20% { opacity: 1; } 80% { opacity: 1; }
-                                100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); }
-                            }
-                        `, styleSheet.cssRules.length);
+                        styleSheet.insertRule(`@keyframes ${keyframeName} { 0% { opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); } }`, styleSheet.cssRules.length);
                         spark.style.animation = `${keyframeName} ${duration}s linear infinite`;
                         spark.style.animationDelay = `${Math.random() * duration}s`;
                         treeContainer.appendChild(spark);
-                    } catch (e) { 
-                        console.warn("Could not insert CSS Rule.", e); 
-                    }
+                    } catch (e) { console.warn("Could not insert CSS Rule.", e); }
                 }
             });
         }
@@ -707,18 +317,13 @@
             navigator.clipboard.writeText(email).then(() => {
                 button.textContent = 'Email Copied!';
                 feedback.textContent = 'Copied to clipboard.';
-                feedback.style.color = var(--accent-cyan);
-                setTimeout(() => { 
-                    button.textContent = originalButtonText; 
-                    feedback.textContent = ''; 
-                }, 3000);
-            }).catch(err => { 
-                showManualCopy(email, feedback); 
-            });
+                feedback.style.color = 'var(--accent-gold)';
+                setTimeout(() => { button.textContent = originalButtonText; feedback.textContent = ''; }, 3000);
+            }).catch(err => { showManualCopy(email, feedback); });
         }
         function showManualCopy(email, feedbackElem) {
             feedbackElem.textContent = `Please copy: ${email}`;
-            feedbackElem.style.color = var(--text-secondary);
+            feedbackElem.style.color = 'var(--text-secondary)';
         }
     </script>
 </body>
