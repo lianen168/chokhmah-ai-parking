@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Oswald:wght@500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            /* --- NEW: "Crystal Wisdom" Palette --- */
+            /* --- "Crystal Wisdom" Palette --- */
             --bg-color: #100824; /* Deep Cosmic Purple */
             --text-primary: #EAEAEA;
             --text-secondary: #9088b2; /* Muted Lavender */
@@ -32,6 +33,7 @@
         }
         .container { max-width: 1200px; width: 100%; padding: 0 40px; margin: 0 auto; position: relative; z-index: 2; }
         header { width: 100%; min-height: 100vh; padding: 60px 20px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
         /* --- NEW FONT & ANIMATION --- */
         .main-title {
             font-family: 'EB Garamond', serif;
@@ -81,23 +83,30 @@
         .original-word-text { font-size: clamp(0.9rem, 2.5vw, 1rem); color: var(--text-secondary); }
         .original-word-hebrew { font-family: 'EB Garamond', serif; font-size: clamp(1.1rem, 3vw, 1.3rem); font-weight: 500; color: var(--accent-amethyst); margin: 0 8px; animation: subtle-pulse 4s infinite ease-in-out; }
         .original-word-translation { font-size: 0.9rem; color: var(--text-secondary); } /* Style for the translation */
+        
         @keyframes subtle-pulse {
             0%, 100% { text-shadow: 0 0 5px var(--amethyst-glow); transform: scale(1); }
             50% { text-shadow: 0 0 10px var(--accent-amethyst), 0 0 15px var(--amethyst-glow); transform: scale(1.03); }
         }
+
         .tagline { font-size: clamp(1rem, 3vw, 1.3rem); max-width: 700px; margin: 2rem auto 0; color: var(--text-secondary); font-style: italic; line-height: 1.6; }
+
         .content-section { background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 80px 40px; width: 100%; }
         .section-title { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 500; letter-spacing: 0.1em; color: var(--accent-amethyst); margin-bottom: 3rem; text-transform: uppercase; }
+        
         .synthesis-text { max-width: 800px; margin: 0 auto 3rem auto; text-align: center; font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.8; color: var(--text-secondary); }
+        
         .analogy-table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; text-align: left; font-size: clamp(0.85rem, 2vw, 1rem); }
         .analogy-table th, .analogy-table td { padding: 15px; border: 1px solid var(--border-color); }
         .analogy-table th { font-family: 'Oswald', sans-serif; color: var(--accent-amethyst); font-size: 1rem; text-align: center; }
         .analogy-table td { color: var(--text-secondary); }
         .analogy-table strong { color: var(--text-primary); font-weight: 500; }
+
         .tree-section { padding: 60px 20px; width: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 70vh; overflow: hidden; }
         .tree-container { position: relative; width: 90vw; max-width: 350px; height: 500px; margin: 2rem auto 0; }
-        .sefirah { position: absolute; width: 50px; height: 50px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; color: var(--accent-silver); background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); padding: 2px; }
+        .sefirah { position: absolute; width: 50px; height: 50px; border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7rem; color: #ccc; background: radial-gradient(circle, var(--card-bg) 50%, transparent 70%); backdrop-filter: blur(5px); padding: 2px; }
         .sefirah.chokhmah { border-color: var(--accent-amethyst); box-shadow: 0 0 15px var(--amethyst-glow); color: var(--accent-amethyst); }
+        
         .keter { top: 5%; left: 50%; transform: translateX(-50%); }
         .chokhmah { top: 20%; left: 15%; }
         .binah { top: 20%; right: 15%; }
@@ -108,24 +117,92 @@
         .hod { top: 63%; right: 15%; }
         .yesod { top: 78%; left: 50%; transform: translateX(-50%); }
         .malkuth { top: 92%; left: 50%; transform: translateX(-50%); }
+
         .spark { position: absolute; width: 2px; height: 2px; background: var(--accent-amethyst); border-radius: 50%; opacity: 0; box-shadow: 0 0 3px var(--accent-amethyst); }
         @keyframes flow { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; transform: var(--transform-end); } }
+
         .domains-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
         .domain-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s ease; }
         .domain-card:hover { transform: translateY(-5px); border-color: var(--accent-amethyst); box-shadow: 0 0 15px var(--amethyst-glow); }
         .domain-card h3 { font-family: 'Oswald', sans-serif; color: var(--accent-amethyst); font-size: clamp(1rem, 3vw, 1.2rem); margin-bottom: 1rem; }
         .domain-card p { color: var(--text-secondary); font-size: clamp(0.85rem, 2vw, 0.95rem); line-height: 1.6; }
+
         .sales-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; padding: 30px; width: 100%; max-width: 550px; margin: 0 auto; backdrop-filter: blur(10px); box-shadow: 0 0 30px rgba(0,0,0,0.2); }
         .domain-name { font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem, 5vw, 1.8rem); font-weight: 500; margin-bottom: 15px; color: var(--text-primary); text-transform: uppercase; }
         .price { font-size: clamp(2rem, 6vw, 3rem); font-weight: 300; color: var(--accent-amethyst); margin: 10px 0; }
         .installments { color: var(--text-secondary); margin-bottom: 25px; font-style: italic; font-size: clamp(0.9rem, 2vw, 1rem); }
+        
         .buy-button { display: inline-block; background: var(--accent-amethyst); color: #000; font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 3vw, 1.1rem); font-weight: 500; padding: 15px 30px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; width: 100%; margin-top: 25px; }
         .buy-button:hover { background: #d8aaff; transform: translateY(-3px); box-shadow: 0 12px 30px var(--amethyst-glow); }
+
+        /* --- NEW: MYSTIC OFFER FORM --- */
+        .offer-wrapper {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            width: 100%;
+        }
+        .offer-title {
+            font-family: 'EB Garamond', serif;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .mystic-form {
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+        .mystic-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'EB Garamond', serif; /* Matching the theme */
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .mystic-input:focus {
+            border-color: var(--accent-amethyst);
+            box-shadow: 0 0 10px var(--amethyst-glow);
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .mystic-input::placeholder { color: rgba(144, 136, 178, 0.5); font-style: italic; }
+        
+        .btn-offer {
+            background: transparent;
+            color: var(--accent-amethyst);
+            border: 1px solid var(--accent-amethyst);
+            padding: 12px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .btn-offer:hover {
+            background: var(--amethyst-glow);
+            box-shadow: 0 0 15px var(--amethyst-glow);
+            color: #fff;
+        }
+        .btn-offer:disabled { opacity: 0.5; cursor: wait; }
+        
+        .status-msg { 
+            margin-top: 15px; font-size: 0.9rem; font-style: italic; min-height: 1.5em; 
+            font-family: 'EB Garamond', serif;
+        }
+        .success-msg { color: #8affc1; }
+        .error-msg { color: #ff8a8a; }
+
         footer { padding: 50px 40px 70px; font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--text-secondary); border-top: 1px solid var(--border-color); width: 100%; }
         .contact-button { background: transparent; color: var(--accent-amethyst); border: 1px solid var(--border-color); font-family: 'EB Garamond', serif; font-size: clamp(0.95rem, 2vw, 1rem); padding: 10px 25px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 15px; }
         .contact-button:hover { background: var(--card-bg); border-color: var(--accent-amethyst); }
         #email-copy-feedback { height: 1.2em; font-size: clamp(0.8rem, 2vw, 0.9rem); margin-top: 10px; }
-        /* --- MOBILE ADAPTATIONS --- */
+
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             .content-section { padding: 60px 20px; }
@@ -178,7 +255,6 @@
                 <div class="original-word">
                     <span class="original-word-text">The original Hebrew word for "wisdom" is</span>
                     <span class="original-word-hebrew">חָכְמָה</span>
-                    <!-- Corrected placement -->
                     <span class="original-word-translation">(Chokhmah)</span>
                 </div>
             </div>
@@ -192,6 +268,7 @@
             <p class="synthesis-text">
                 Chokhmah is not mere knowledge, but the <strong>"initial spark"</strong> of creation—a pure, unstructured insight. It is the leap from "knowing" facts (Da'at) to "discerning" truth. For AI, this represents the ultimate frontier: moving beyond data processing to achieve genuine, emergent wisdom. This domain poses the final question: Can we create a machine that not only possesses knowledge, but generates Chokhmah?
             </p>
+
             <table class="analogy-table">
                 <thead>
                     <tr>
@@ -248,12 +325,32 @@
     <section class="content-section" style="border-top: none;">
         <div class="container">
             <div class="section-title">Acquire the Spark</div>
+            
             <div class="sales-card">
+                <!-- BUY NOW SECTION -->
                 <h3 class="domain-name">chokhmah<span style="color: var(--accent-amethyst)">.ai</span></h3>
                 <p style="color: var(--text-secondary); margin-top:0;">The foundational asset for the pursuit of true artificial wisdom.</p>
                 <div class="price">$73,000 <small>USD</small></div>
                 <p class="installments">10 installment payments of $7,300</p>
-                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '\_blank')">Acquire the Spark</button>
+                <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/chokhmah.ai/B3GoLfWY65thZgHD', '_blank')">Acquire the Spark</button>
+            
+                <!-- NEW: COUNTER OFFER FORM (Integrated) -->
+                <div class="offer-wrapper">
+                    <h4 class="offer-title">Or Propose an Alternative Value</h4>
+                    <form id="offerForm" class="mystic-form">
+                        <!-- Hidden Configurations -->
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Offer for Chokhmah.ai">
+
+                        <input type="number" name="offer_amount" class="mystic-input" placeholder="Your Valuation (USD)" min="1000" required>
+                        <input type="email" name="email" class="mystic-input" placeholder="Your Correspondence Email" required>
+                        <textarea name="message" class="mystic-input" rows="2" placeholder="Intent / Financing Proposal (Optional)"></textarea>
+                        
+                        <button type="submit" class="btn-offer">Submit Proposal</button>
+                    </form>
+                    <div id="formStatus" class="status-msg"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -267,12 +364,64 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        /* --- AJAX FORM SUBMISSION --- */
+        const offerForm = document.getElementById('offerForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        offerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = offerForm.querySelector('button');
+            const originalBtnText = btn.innerText;
+            
+            // Loading State (Thematic)
+            btn.innerText = "Transmitting to the Ether...";
+            btn.disabled = true;
+            statusDiv.innerText = "";
+            statusDiv.className = "status-msg";
+
+            const formData = new FormData(offerForm);
+            const data = Object.fromEntries(formData.entries());
+
+            // Send to FormSubmit
+            fetch("https://formsubmit.co/ajax/joshua369x@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Success
+                statusDiv.innerHTML = "Proposal received. Wisdom takes time to process; we shall respond shortly.";
+                statusDiv.className = "status-msg success-msg";
+                offerForm.reset();
+            })
+            .catch(error => {
+                // Error
+                statusDiv.innerHTML = "Transmission interrupted. Please contact joshua369x@gmail.com directly.";
+                statusDiv.className = "status-msg error-msg";
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset Button
+                setTimeout(() => {
+                    btn.innerText = originalBtnText;
+                    btn.disabled = false;
+                }, 2000);
+            });
+        });
+
+        /* --- TREE ANIMATION LOGIC --- */
         const treeContainer = document.getElementById('tree-container');
         const sefirotData = [
             { name: 'Keter', class: 'keter' }, { name: 'Chokhmah', class: 'chokhmah' }, { name: 'Binah', class: 'binah' },
             { name: 'Chesed', class: 'chesed' }, { name: 'Gevurah', class: 'gevurah' }, { name: 'Tiferet', class: 'tiferet' },
             { name: 'Netzach', class: 'netzach' }, { name: 'Hod', class: 'hod' }, { name: 'Yesod', class: 'yesod' }, { name: 'Malkuth', class: 'malkuth' }
         ];
+
         sefirotData.forEach(s => {
             const el = document.createElement('div');
             el.className = `sefirah ${s.class}`;
@@ -294,13 +443,16 @@
                 const startEl = document.querySelector(path.start);
                 const endEl = document.querySelector(path.end);
                 if (!startEl || !endEl) return;
+
                 const containerRect = treeContainer.getBoundingClientRect();
                 const startRect = startEl.getBoundingClientRect();
                 const endRect = endEl.getBoundingClientRect();
+
                 const startX = startRect.left + startRect.width / 2 - containerRect.left;
                 const startY = startRect.top + startRect.height / 2 - containerRect.top;
                 const endX = endRect.left + endRect.width / 2 - containerRect.left;
                 const endY = endRect.top + endRect.height / 2 - containerRect.top;
+
                 for (let i = 0; i < 2; i++) {
                     const spark = document.createElement('div');
                     spark.className = 'spark';
@@ -308,6 +460,7 @@
                     spark.style.top = `${startY}px`;
                     const duration = 2 + Math.random() * 2;
                     const keyframeName = `flow-${pIndex}-${i}`;
+
                     const styleSheet = document.styleSheets[0];
                     try {
                         styleSheet.insertRule(`@keyframes ${keyframeName} { 0% { opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(${endX - startX}px, ${endY - startY}px); } }`, styleSheet.cssRules.length);
@@ -325,7 +478,9 @@
             const email = 'joshua369x@gmail.com';
             const button = document.getElementById('contactBtn');
             const feedback = document.getElementById('email-copy-feedback');
+
             if (!button || !feedback) return;
+
             const originalButtonText = button.textContent;
             navigator.clipboard.writeText(email).then(() => {
                 button.textContent = 'Email Copied!';
